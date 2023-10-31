@@ -1,10 +1,10 @@
-import './App.css';
+import './App.less';
 import 'reset-css';
 
 
 function App() {
     return (
-        <div>Hello portfolio</div>
+        <div className={'title'}>Hello portfolio</div>
     );
 }
 
