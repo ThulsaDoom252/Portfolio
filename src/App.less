@@ -19,6 +19,7 @@ body {
 header {
   color: @primary;
   padding: 2rem !important;
+  background: @secondary-bg;
 }
 
 .logo {
@@ -79,6 +80,44 @@ header {
     display: none;
     font-size: 1.5rem;
   }
+}
+
+
+//Greet section
+.greet-section {
+  background: @secondary-bg;
+  height: 30rem;
+  color: @primary;
+  padding-top: 6.25rem;
+
+  div {
+    max-width: 1260px;
+    font-weight: 700;
+    padding-right: 0.938rem;
+    padding-left: 0.938rem;
+    margin-right: auto;
+    margin-left: auto;
+
+    .greet-label {
+      color: @secondary;
+      font-size: 0.93rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25rem;
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+
+    .greet-title {
+      font-size: 3.38rem;
+      line-height: 4.25rem;
+      margin-bottom: 15px;
+    }
+
+    .greet-based {
+      font-size: 3.8rem;
+    }
+  }
+
 }
 
 //--------------------------Breakpoints
