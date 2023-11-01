@@ -1,1 +1,109 @@
 @import "less/variables";
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600&family=Poppins:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  line-height: 1.714286;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Poppins, sans-serif;
+  background: @primary-bg;
+  font-weight: 400;
+}
+
+//-------------------------Header
+header {
+  color: @primary;
+  padding: 2rem !important;
+}
+
+.logo {
+  max-width: 7rem;
+  max-height: 7rem;
+}
+
+.navbar {
+  li {
+    padding: 1.2rem;
+    font-weight: 500;
+    transition: 0.8s ease;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background: @primary-active;
+      transition: width 0.8s ease;
+    }
+
+    &.isActive {
+      color: @primary-active;
+
+      &:after {
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+
+.header-contacts {
+  li {
+    color: @primary-inactive;
+    display: inline-block;
+    padding: 1rem;
+    font-size: 1.3rem;
+    transition: 0.5s ease;
+
+    &:hover {
+      cursor: pointer;
+      color: @primary;
+      transform: translateY(-0.2rem);
+    }
+  }
+
+  .burger-menu-btn {
+    margin: 1rem;
+    display: none;
+    font-size: 1.5rem;
+  }
+}
+
+//--------------------------Breakpoints
+@media (max-width: 884px) {
+  .navbar {
+    display: none;
+    position: absolute;
+  }
+
+  .header-contact-list {
+    margin-right: 2.5rem;
+  }
+
+  .burger-menu-btn {
+    display: block !important;
+    margin-left: 2rem !important;
+  }
+}
+
+@media (max-width: 654px) {
+  header {
+    padding: 0 !important;
+  }
+
+  .header-contact-list {
+    margin-right: 0;
+  }
+}
