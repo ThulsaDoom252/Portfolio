@@ -1,20 +1,23 @@
 @import "less/variables";
 @import "less/keyframes";
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600&family=Poppins:wght@500&display=swap');
+@import "less/common";
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   line-height: 1.714286;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: Poppins, sans-serif;
   background: @primary-bg;
+  color: @primary;
   font-weight: 400;
 }
+
 
 //-------------------------Header
 header {
@@ -83,7 +86,7 @@ header {
   }
 }
 
-//Greet section
+//__________________________Greet section
 //toDo optimize background code
 .greet {
   background-image: url(./assets/BG.png);
@@ -97,13 +100,8 @@ header {
   .greet__main-text {
     max-width: 1260px;
     font-weight: 700;
-    padding-right: 0.938rem;
-    padding-left: 0.938rem;
-    margin-right: auto;
-    margin-left: auto;
 
     .greet__label {
-      color: @secondary;
       font-size: 0.93rem;
       text-transform: uppercase;
       letter-spacing: 0.25rem;
@@ -135,14 +133,101 @@ header {
   }
 }
 
-//--------------------------Breakpoints
-@media (max-width: 1240px) {
-  .greet__main-text {
-    padding-right: 4rem !important;
-    padding-left: 4rem !important;
+//____________________________________About
+.about {
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+  font-family: Poppins, sans-serif;
+
+  .about__row {
+    display: flex;
+    margin-left: -1.562rem;
+    margin-right: -1.562rem;
+
+    .about__first-col {
+      padding-left: 1.56rem;
+      padding-right: 1.56rem;
+      flex: 0 0 41.666667%;
+      max-width: 41.666667%;
+
+      img {
+        border-radius: 2rem;
+        box-shadow: 0 25px 65px rgba(0, 0, 0, .1);
+        overflow-clip-margin: content-box;
+        overflow: clip;
+      }
+    }
+
+    .about__second-col {
+      padding-left: 4rem;
+      flex: 0 0 58.333333%;
+      max-width: 58.333333%;
+
+      .about__top {
+        margin-top: 1.25rem;
+
+        .about__title {
+          font-size: 2.9rem;
+        }
+
+        .about__description {
+          margin-bottom: 0.94rem;
+        }
+      }
+
+      .about__bottom {
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        .about__navbar {
+          width: 100%;
+          display: flex;
+          padding-bottom: 1rem;
+
+          .about__navbar-item {
+            margin: 0 1.25rem 0 0;
+            position: relative;
+            font-size: 1.13rem;
+            padding-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.8s ease;
+
+            &:after {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              height: 2px;
+              width: 50%;
+              background: @secondary;
+              transition: width 0.8s ease;
+            }
+
+            &.isActive {
+              color: @primary-active;
+
+              &:after {
+                width: 100%; // Ширина 100% при наличии класса isActive
+                background: @primary-active; // Красный цвет полосы
+              }
+            }
+          }
+        }
+      }
+
+      .about__skills {
+        font-size: 16px;
+        margin-bottom: 0.9375rem;
+      }
+
+      .about__skills-title {
+        color: @primary;
+      }
+    }
   }
 }
 
+//--------------------------Breakpoints
 @media (max-width: 884px) {
   .navbar {
     display: none;
@@ -157,22 +242,17 @@ header {
     display: block !important;
     margin-left: 2rem !important;
   }
-
 }
 
 @media (max-width: 801px) {
+  //_______________________________Greet
   .greet {
     background-position: 60% !important;
-    height: 20rem !important;
+    height: 25rem !important;
   }
 
   .greet__label {
-    font-size: 0.6rem !important;
-  }
-
-  .greet__main-text {
-    padding-right: 2.1rem !important;
-    padding-left: 2.1rem !important;
+    font-size: 0.7rem !important;
   }
 
   .greet__react-text, .greet__designer-text {
@@ -181,8 +261,40 @@ header {
   }
 
   .greet__title, .greet__subtitle {
-    font-size: 2rem !important;
+    font-size: 2.2rem !important;
     line-height: 1.8rem !important;
+  }
+
+  //____________________________________About
+  .about {
+    padding-top: 1.5rem !important;
+
+    .about__title {
+      font-size: 2rem !important;
+    }
+
+    .about__row {
+      flex-direction: column;
+      margin: 0 auto !important;
+
+      .about__first-col {
+        padding: 0;
+        max-width: 100% !important;
+      }
+
+      .about__second-col {
+        padding: 0;
+        max-width: 100% !important;
+
+        .about__navbar-item {
+          font-size: 1rem !important;
+        }
+
+        .about__description, .description{
+          font-size: 0.95rem !important;
+        }
+      }
+    }
   }
 }
 
