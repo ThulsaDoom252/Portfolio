@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {delay} from '../common';
 
 const Greet = () => {
-
     const [textIndex, setTextIndex] = useState(0)
     const [slideAnimation, toggleSlideAnimation] = useState(false)
     const texts = ['React developer', 'Ui/ux designer']
@@ -22,7 +21,6 @@ const Greet = () => {
 
         return () => clearInterval(interval)
     }, [])
-
 
     return (
         <section className='greet'>
