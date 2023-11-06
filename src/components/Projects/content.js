@@ -12,6 +12,8 @@ import chatImage01 from "../../assets/chatlink/chatlink02.jpg"
 export const projectItems = [
     {
         title: 'firedrive',
+        branch: 'Media-storage',
+        type: 'Web-app',
         subTitle: 'Stream and store your files with ease',
         description: 'Immerse yourself in the world of your media. Dive into breathtaking visuals with image viewing, experience the magic of cinema with video playback, and let the music surround your soul with seamless audio listening',
         itemThumbnailClass: 'project__thumbnail-firedrive',
@@ -23,6 +25,8 @@ export const projectItems = [
     },
     {
         title: 'social-network',
+        branch: 'Social-network',
+        type: 'Web-app',
         subTitle: 'Community of react-developers',
         description: 'A thriving digital ecosystem designed exclusively for React aficionados, offering a space to connect, collaborate, and co-create within the ever-evolving realm of front-end development',
         itemThumbnailClass: 'project__thumbnail-network',
@@ -34,6 +38,8 @@ export const projectItems = [
     },
     {
         title: 'chatlink',
+        branch: 'Chat',
+        type: 'Web-app',
         subTitle: 'Stay in touch',
         description: '"A versatile digital chat platform that redefines the art of real-time communication, offering a plethora of options including instant messaging, seamless photo and video sharing, and effortless connections for engaging and profound conversations',
         itemThumbnailClass: 'project__thumbnail-chatlink',

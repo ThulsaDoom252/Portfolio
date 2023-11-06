@@ -28,8 +28,11 @@ const Projects = ({isProjectDetailsVisible, handleProjectDetails}) => {
                             </Grid>
                         </Box>
                     </> : <>{projectItems.map((item, index) => <Project
+                        key={index}
                         onClick={() => handleProjectDetails('projects')}
                         title={item.title} subtitle={item.subTitle}
+                        branch={item.branch}
+                        type={item.type}
                         description={item.description}
                         deployLink={item.deployLink}
                         gitLink={item.gitLink}

@@ -6,11 +6,12 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import Greet from './components/Greet';
 import AboutContainer from './components/About/AboutContainer';
 import Projects from './components/Projects/Projects';
-import Landings from './components/Landings';
+import Landings from './components/Landings/Landings';
 import Footer from './components/Footer';
 import useWindowDimensions from './hooks/useWindowDimensions';
 import ProjectsContainer from './components/Projects/ProjectsContainer';
 import {useEffect, useState} from 'react';
+import LandingsContainer from './components/Landings/LandingsContainer';
 
 function App() {
 
@@ -70,7 +71,7 @@ function App() {
             <main>
                 <AboutContainer/>
                 <ProjectsContainer handleActiveSection={handleActiveSection}/>
-                <Landings/>
+                <LandingsContainer handleActiveSection={handleActiveSection}/>
             </main>
             <Footer/>
         </ThemeProvider>

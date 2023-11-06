@@ -14,10 +14,13 @@ const Project = ({
                      titleImage,
                      image01,
                      image02,
+                     key,
+                     type,
+                     branch,
                  }) => {
     const classes = useStyles()
     return (
-        <Box className='project-details__block' id={title}>
+        <Box key={key} id={title} className='project-details__block'>
             <Box display='flex' justifyContent='space-between'>
                 <h1 className='project-details__title title capitalize'>{title}</h1>
                 <Button className={classes.customButton}
@@ -30,11 +33,11 @@ const Project = ({
                 <Grid container padding={0} margin={0}>
                     <GridItem padding='none' xs={6} md={4}>
                         <p className='project-details__subtitle'>Branch</p>
-                        <p>Media storage</p>
+                        <p>{branch}</p>
                     </GridItem>
                     <GridItem padding='none' xs={6} md={4}>
                         <p className='project-details__subtitle'>Project type</p>
-                        <p>Web-app</p>
+                        <p>{type}</p>
                     </GridItem>
                     <GridItem padding='none' xs={6} md={4}>
                         <p className='project-details__subtitle'>Github</p>
@@ -57,8 +60,7 @@ const Project = ({
                 </Box>
             </Box>
         </Box>
-    )
-        ;
+    );
 };
 
 export default Project;
