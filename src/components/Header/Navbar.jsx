@@ -1,15 +1,13 @@
 import React from 'react';
 
-const Navbar = ({activeNavItemIndex, setActiveNavItemIndex}) => {
-    const navItems = ['Home', 'About', 'Skills', 'Projects', 'Landings']
+const Navbar = ({currentSection, handleActiveSection}) => {
+    const navItems = ['home', 'about',  'projects', 'landings']
 
     return (
         <ul className='flex justify-between navbar'>
             {navItems.map((item, index) => {
-                return (
-                    <li key={index} className={index === activeNavItemIndex ? "isActive" : void 0}
-                        onClick={() => setActiveNavItemIndex(index)}><a>{item}</a></li>
-                )
+                return <li key={index} className={`navbar__item ${item === currentSection && "isActive"}`}
+                           onClick={() => handleActiveSection(item)}><a>{item}</a></li>
             })}
         </ul>
     );

@@ -3,7 +3,7 @@ import Overlay from './Overlay';
 import {Button} from '@mui/material';
 import {useStyles} from '../../muiStyles';
 
-const Project = ({thumbnail, title, description}) => {
+const ProjectItem = ({thumbnail, title, description}) => {
     const classes = useStyles()
 
     return (
@@ -20,4 +20,4 @@ const Project = ({thumbnail, title, description}) => {
     );
 };
 
-export default Project;
+export default ProjectItem;

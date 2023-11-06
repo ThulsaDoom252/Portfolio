@@ -24,7 +24,7 @@ const Greet = () => {
     }, [])
 
     return (
-        <section className='greet'>
+        <section id='home' className='greet'>
             <Box className='container'>
                 <div className='greet__main-text'>
                     <p className='greet__label description'>welcome to my world</p>

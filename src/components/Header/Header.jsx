@@ -4,17 +4,15 @@ import Logo from './Logo';
 import Navbar from './Navbar';
 import Contacts from './Contacts';
 
-const Header = ({activeNavItemIndex, setActiveNavItemIndex, classes, currentScreenWidth}) => {
+const Header = ({currentSection, handleActiveSection, classes, currentScreenWidth, isSticky}) => {
     return (
-        <header className='h-20 justify-between flex items-center'>
+        <header className={`h-20 justify-between flex items-center ${isSticky && 'sticky-header'}`}>
             <Box
                 display='flex'
                 justifyContent='space-between'
                 alignItems='center'>
                 <Logo/>
-                <Navbar
-                    activeNavItemIndex={activeNavItemIndex}
-                    setActiveNavItemIndex={setActiveNavItemIndex}/>
+                <Navbar currentSection={currentSection} handleActiveSection={handleActiveSection}/>
             </Box>
             <Contacts classes={classes} currentScreenWidth={currentScreenWidth}/>
         </header>
