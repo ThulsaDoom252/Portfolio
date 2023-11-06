@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Grid} from '@mui/material';
-import GridItem from '../common/GridItem';
-import Project from './Project';
+import GridItem from './common/GridItem';
+import Project from './common/Project';
 
 const Projects = () => {
     return (

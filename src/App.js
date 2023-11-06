@@ -6,7 +6,8 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import Greet from './components/Greet';
 import About from './components/About/About';
 import AboutContainer from './components/About/AboutContainer';
-import Projects from './components/Projects/Projects';
+import Projects from './components/Projects';
+import Landings from './components/Landings';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
             <main>
                 <AboutContainer/>
                 <Projects/>
+                <Landings/>
             </main>
         </ThemeProvider>
     );

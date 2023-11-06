@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Navbar = ({activeNavItemIndex, setActiveNavItemIndex}) => {
-    const navItems = ['Home', 'About', 'Skills', 'Portfolio']
+    const navItems = ['Home', 'About', 'Skills', 'Projects', 'Landings']
 
     return (
         <ul className='flex justify-between navbar'>
