@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Typography} from '@mui/material';
 import Logo from './Header/Logo';
-import Contacts from './Header/Contacts';
+import Contacts from './common/Contacts';
 import {useStyles} from '../muiStyles';
 
 const Footer = () => {
@@ -14,8 +14,10 @@ const Footer = () => {
                     <Logo/>
                     <Typography fontSize='2rem' fontWeight={700}>ThulsaDev</Typography>
                 </Box>
-                <Contacts classes={classes} showButton={false}/>
-                <Typography className='description' fontSize='1rem'>Copyright © 2023 ThulsaDev-Themes. All Rights
+                <Contacts classes={classes} showButton={false} showBurgerButton={false} iconSize={30}/>
+                <Typography className='footer-block__copyright description' fontSize='1rem'>Copyright © 2023
+                    ThulsaDev-Themes.
+                    All Rights
                     Reserved.</Typography>
             </Box>
         </footer>

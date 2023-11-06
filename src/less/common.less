@@ -19,24 +19,54 @@
   min-height: 28.125rem;
   padding-left: 0.934rem;
   padding-right: 0.934rem;
-  margin-top: 2.5rem;
-  padding-top: 16.9rem;
-  text-align: center;
-  border-radius: 0.5rem;
+  //margin-top: 2.5rem;
+  //padding-top: 16.9rem;
+  //text-align: center;
+  //border-radius: 0.5rem;
 
-  .link-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: block;
-    opacity: 0;
+  .portfolio__inner {
+    margin-top: 2.5rem;
+    text-align: center;
+    padding-top: 35%;
 
-    background: linear-gradient(to bottom, @primary-active, black);
-    transition: all 0.4s ease-in-out; // Плавное изменение прозрачности
+    .portfolio__inner-thumbnail {
+      transition: -webkit-transform .28s ease;
+      transition: transform .28s ease, -webkit-transform .28s ease;
+      z-index: 9;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: 50%;
+      overflow: hidden;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-    &:hover {
+    .link-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: block;
+      opacity: 0;
+      z-index: 9;
+
+      background: linear-gradient(to bottom, @primary-active, black);
+      transition: all .28s ease-in-out; // Плавное изменение прозрачности
+
+    }
+  }
+
+  &:hover {
+    .portfolio__inner-thumbnail {
+      transform: scale(110%);
+    }
+
+    .link-overlay {
       opacity: 0.5;
       cursor: pointer;
     }

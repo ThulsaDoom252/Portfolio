@@ -22,7 +22,6 @@ header {
   z-index: 1000; /* Вы можете настроить z-index по своему усмотрению */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Необязательный эффект тени */
   transition: all .5s ease-in-out;
-
 }
 
 .logo {
@@ -63,7 +62,7 @@ header {
   }
 }
 
-.header-contacts {
+.contacts-block {
   li {
     color: @primary-inactive;
     display: inline-block;
@@ -226,8 +225,16 @@ header {
 
 //**---------------ProjectItem
 .projects {
-  background: linear-gradient(to right, @secondary-bg, @primary-bg) !important;
   font-family: Poppins, sans-serif;
+  transition: all .5s ease-in-out;
+
+  &.project-details {
+    background: @light-bg !important;
+  }
+
+  &.projects-list {
+    background: @secondary-bg !important;
+  }
 
   .projects__top-block {
     text-align: center;
@@ -240,30 +247,40 @@ header {
 
   .project__thumbnail-firedrive {
     background-image: url("./assets/firedrive/thumbnail.png");
-    .bgTemplate()
+    //.bgTemplate()
   }
 
   .project__thumbnail-network {
     background-image: url("./assets/social-network/sn_thumbnail.png");
-    .bgTemplate()
+    //.bgTemplate()
   }
 
   .project__thumbnail-chatlink {
     background-image: url("./assets/chatlink/chatlink_thumbnail.jpg");
-    .bgTemplate()
+    //.bgTemplate()
   }
 
   .project__content {
-    margin: 0 auto;
-    max-width: 80% !important;
     position: absolute;
-    font-size: 1.2rem;
-    left: 2.5rem;
-    right: 2.5rem;
+    bottom: 40px;
+    left: 40px;
+    max-width: 80%!important;
+    z-index: 10;
+    padding: 0;
+    right: 40px;
+    margin: 0 auto;
+
+    //
+    //margin: 0 auto;
+    //max-width: 80% !important;
+    //position: absolute;
+    //font-size: 1.2rem;
+    //left: 2.5rem;
+    //right: 2.5rem;
 
     .project__content-title {
       font-size: 1.5rem;
-      margin-bottom: 0.8rem;
+      //margin-bottom: 0.8rem;
     }
 
     .project__content-description {
@@ -273,6 +290,44 @@ header {
     .project__content-button {
       margin-top: 1.45rem;
     }
+  }
+}
+
+//-----Project Details
+.project-details {
+  h1, h2, h3 {
+    color: @light-primary;
+  }
+
+  p, a {
+    color: @light-secondary;
+    line-height: 30px;
+  }
+
+  .project-details__block {
+    margin-bottom: 8rem;
+  }
+
+  .project-details__title {
+    line-height: 27px;
+    width: 100%;
+    display: block;
+    margin-bottom: 0;
+    padding-bottom: 43px;
+    color: @light-primary;
+    border-bottom: 1px solid @light-secondary;
+  }
+
+  .project-details__subtitle {
+    color: #1F1F25FF;
+    font-size: 1.4375rem;
+    line-height: 44px;
+    margin-top: 28px;
+  }
+
+  .project-details__thumbnail {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -296,22 +351,35 @@ header {
 //-------------------Footer
 .footer {
   min-height: 10rem;
+  position: relative;
   background: @primary-bg;
   display: flex;
   align-items: center;
   padding: 1rem;
   font-family: Poppins, sans-serif;
-}
 
-.footer-block {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .footer-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
 }
 
 
 //--------------------------Breakpoints
+
+@media (max-width: 1100px) {
+  .footer-block__copyright {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
 @media (max-width: 884px) {
   .navbar {
     display: none;
@@ -326,6 +394,7 @@ header {
     display: block !important;
     margin-left: 2rem !important;
   }
+
 }
 
 @media (max-width: 801px) {
@@ -399,5 +468,13 @@ header {
 
   .header-contact-list {
     margin-right: 0;
+  }
+
+  .footer-block {
+    flex-direction: column;
+
+    .footer-block__copyright {
+      bottom: 0.2rem;
+    }
   }
 }

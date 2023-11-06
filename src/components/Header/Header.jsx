@@ -2,7 +2,7 @@ import React from 'react';
 import {Box} from '@mui/material';
 import Logo from './Logo';
 import Navbar from './Navbar';
-import Contacts from './Contacts';
+import Contacts from '../common/Contacts';
 
 const Header = ({currentSection, handleActiveSection, classes, currentScreenWidth, isSticky}) => {
     return (
