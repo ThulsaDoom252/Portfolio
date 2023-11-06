@@ -120,8 +120,6 @@ header {
 
 //____________________________________About
 .about {
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
   font-family: Poppins, sans-serif;
 
   .about__row {
@@ -214,7 +212,7 @@ header {
 
 //**---------------Project
 .projects {
-  background: @secondary-bg;
+  background: linear-gradient(to right, @secondary-bg, @primary-bg) !important;
   font-family: Poppins, sans-serif;
 
   .projects__top-block {
@@ -265,9 +263,8 @@ header {
 }
 
 ///--------------------Landings
-
 .landings {
-  background: @primary-bg !important;
+  background: linear-gradient(to right, @primary-bg, @secondary-bg) !important;
   font-family: Poppins, sans-serif;
 }
 
@@ -280,6 +277,25 @@ header {
   background-image: url("./assets/burningman/bm-thumbnail.png");
   .bgTemplate()
 }
+
+
+//-------------------Footer
+.footer {
+  min-height: 10rem;
+  background: @primary-bg;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-family: Poppins, sans-serif;
+}
+
+.footer-block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 //--------------------------Breakpoints
 @media (max-width: 884px) {

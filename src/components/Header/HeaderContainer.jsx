@@ -4,11 +4,12 @@ import {useStyles} from '../../muiStyles';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 const HeaderContainer = () => {
-    const [activeNavItemIndex, setActiveNavItemIndex] = useState(null)
 
     const {width: currentScreenWidth} = useWindowDimensions()
 
     const classes = useStyles()
+
+    const [activeNavItemIndex, setActiveNavItemIndex] = useState(null)
 
     return <Header
         currentScreenWidth={currentScreenWidth}
