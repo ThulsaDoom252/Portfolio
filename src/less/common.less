@@ -1,8 +1,50 @@
 @import "variables";
 
-//Container
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+.portfolio-section {
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  //margin-right: -15px !important;
+  //margin-left: -15px !important;
+}
+
+.portfolio {
+  position: relative;
   width: 100%;
+  min-height: 28.125rem;
+  padding-left: 0.934rem;
+  padding-right: 0.934rem;
+  margin-top: 2.5rem;
+  padding-top: 16.9rem;
+  text-align: center;
+  border-radius: 0.5rem;
+
+  .link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    opacity: 0;
+
+    background: linear-gradient(to bottom, @primary-active, black);
+    transition: all 0.4s ease-in-out; // Плавное изменение прозрачности
+
+    &:hover {
+      opacity: 0.5;
+      cursor: pointer;
+    }
+  }
+}
+
+//Container
+.container {
+  max-width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -20,5 +62,25 @@
   font-size: 1.13rem;
   line-height: 1.9rem;
 }
+
+
+@media (min-width: 992px) {
+  .container{
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
 
 

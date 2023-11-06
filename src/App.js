@@ -6,6 +6,7 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import Greet from './components/Greet';
 import About from './components/About/About';
 import AboutContainer from './components/About/AboutContainer';
+import Projects from './components/Projects/Projects';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
             <Greet/>
             <main>
                 <AboutContainer/>
+                <Projects/>
             </main>
         </ThemeProvider>
     );

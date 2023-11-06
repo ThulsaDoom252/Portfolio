@@ -2,22 +2,8 @@
 @import "less/keyframes";
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600&family=Poppins:wght@500&display=swap');
 @import "less/common";
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  overflow-x: hidden;
-  line-height: 1.714286;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: Poppins, sans-serif;
-  background: @primary-bg;
-  color: @primary;
-  font-weight: 400;
-}
-
+@import "less/templates";
+@import "less/elements";
 
 //-------------------------Header
 header {
@@ -63,7 +49,6 @@ header {
   }
 }
 
-
 .header-contacts {
   li {
     color: @primary-inactive;
@@ -89,17 +74,17 @@ header {
 //__________________________Greet section
 //toDo optimize background code
 .greet {
-  background-image: url(./assets/BG.png);
-  background-position: 50%;
+  background-image: url(assets/BG.png);
+  background-position: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 30rem;
+  height: 30.375rem;
   color: @primary;
-  padding-top: 6.25rem;
+  padding-top: 9.375rem;
 
   .greet__main-text {
-    max-width: 1260px;
     font-weight: 700;
+    margin: 0 auto !important;
 
     .greet__label {
       font-size: 0.93rem;
@@ -227,6 +212,59 @@ header {
   }
 }
 
+//**---------------Project
+.projects {
+  background: @secondary-bg;
+  font-family: Poppins, sans-serif;
+
+  .projects__top-block {
+    text-align: center;
+    display: block;
+  }
+
+  .projects__title {
+    text-align: center;
+  }
+
+  .project__thumbnail-firedrive {
+    background-image: url("./assets/firedrive/thumbnail.png");
+    .bgTemplate()
+  }
+
+  .project__thumbnail-network {
+    background-image: url("./assets/social-network/sn_thumbnail.png");
+    .bgTemplate()
+  }
+
+  .project__thumbnail-chatlink {
+    background-image: url("./assets/chatlink/chatlink_thumbnail.jpg");
+    .bgTemplate()
+  }
+
+  .project__content {
+    margin: 0 auto;
+    max-width: 80% !important;
+    position: absolute;
+    font-size: 1.2rem;
+    left: 2.5rem;
+    right: 2.5rem;
+
+    .project__content-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .project__content-description {
+      min-height: 3.5rem;
+    }
+
+    .project__content-button {
+      margin-top: 1.45rem;
+    }
+  }
+}
+
+
 //--------------------------Breakpoints
 @media (max-width: 884px) {
   .navbar {
@@ -245,6 +283,20 @@ header {
 }
 
 @media (max-width: 801px) {
+  .title {
+    font-size: 2.19rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .portfolio-section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+
   //_______________________________Greet
   .greet {
     background-position: 60% !important;
@@ -266,33 +318,29 @@ header {
   }
 
   //____________________________________About
-  .about {
-    padding-top: 1.5rem !important;
+  .about__title {
+    font-size: 2rem !important;
+  }
 
-    .about__title {
-      font-size: 2rem !important;
+  .about__row {
+    flex-direction: column;
+    margin: 0 auto !important;
+
+    .about__first-col {
+      padding: 0;
+      max-width: 100% !important;
     }
 
-    .about__row {
-      flex-direction: column;
-      margin: 0 auto !important;
+    .about__second-col {
+      padding: 0;
+      max-width: 100% !important;
 
-      .about__first-col {
-        padding: 0;
-        max-width: 100% !important;
+      .about__navbar-item {
+        font-size: 1rem !important;
       }
 
-      .about__second-col {
-        padding: 0;
-        max-width: 100% !important;
-
-        .about__navbar-item {
-          font-size: 1rem !important;
-        }
-
-        .about__description, .description{
-          font-size: 0.95rem !important;
-        }
+      .about__description, .description {
+        font-size: 0.95rem !important;
       }
     }
   }

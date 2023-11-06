@@ -8,7 +8,7 @@ import {experience, skills} from '../../common';
 
 const About = ({activeSection, setActiveSection}) => {
     return (
-        <section className='about'>
+        <section className='about portfolio-section'>
             <Box className='container'>
                 <Box className='about__row'>
                     <div className='about__first-col'>
