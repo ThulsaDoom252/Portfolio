@@ -19,10 +19,10 @@ function App() {
     const [isSticky, setIsSticky] = useState(false)
 
     const handleActiveSection = (section, isProjectSection) => {
-        !isProjectSection && setCurrentSection(section)
-        const targetElement = document.getElementById(section);
-        if (targetElement) {
-            targetElement.scrollIntoView();
+        if (section !== currentSection) {
+            !isProjectSection && setCurrentSection(section)
+            const targetElement = document.getElementById(section);
+            targetElement && targetElement.scrollIntoView()
         }
     }
 
@@ -37,39 +37,38 @@ function App() {
         };
     }, []);
 
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setCurrentSection(entry.target.id);
-                    }
-                });
-            },
-            {
-                rootMargin: '-100px 0px 0px 0px' // отступ от верхней границы viewport
-            }
-        );
-        const sections = document.querySelectorAll('section');
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
-        return () => {
-            sections.forEach((section) => {
-                observer.unobserve(section);
-            });
-        };
-    }, []);
+    // useEffect(() => {
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 if (entry.isIntersecting) {
+    //                     setCurrentSection(entry.target.id);
+    //                 }
+    //             });
+    //         },
+    //         {
+    //             rootMargin: '-100px 0px 0px 0px' // отступ от верхней границы viewport
+    //         }
+    //     );
+    //     const sections = document.querySelectorAll('section');
+    //     sections.forEach((section) => {
+    //         observer.observe(section);
+    //     });
+    //     return () => {
+    //         sections.forEach((section) => {
+    //             observer.unobserve(section);
+    //         });
+    //     };
+    // }, []);
 
 
     return (
         <ThemeProvider theme={theme}>
             <HeaderContainer currentSection={currentSection} isSticky={isSticky}
                              handleActiveSection={handleActiveSection}/>
-            <Greet/>
+            <Greet currentSection={currentSection} handleActiveSection={handleActiveSection}/>
             <main>
-                <AboutContainer/>
+                <AboutContainer handleActiveSection={handleActiveSection} currentSection={currentSection}/>
                 <ProjectsContainer handleActiveSection={handleActiveSection}/>
                 <LandingsContainer handleActiveSection={handleActiveSection}/>
             </main>

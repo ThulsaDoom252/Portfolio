@@ -10,76 +10,72 @@ header {
   padding: 2rem !important;
   background: @secondary-bg;
   transition: all .28s ease-in-out;
-}
 
-.sticky-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: @primary-bg !important;
-  z-index: 1000; /* Вы можете настроить z-index по своему усмотрению */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Необязательный эффект тени */
-  transition: all .28s ease-in-out;
-}
+  &.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: @primary-bg !important;
+    z-index: 1000; /* Вы можете настроить z-index по своему усмотрению */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Необязательный эффект тени */
+    transition: all .28s ease-in-out;
+  }
 
-.logo {
-  max-width: 7rem;
-  max-height: 7rem;
-}
+  .logo {
+    max-width: 7rem;
+    max-height: 7rem;
+  }
 
-.navbar {
-  li {
-    padding: 1.2rem;
+  .navbar {
+    font-family: Poppins, sans-serif;
     font-weight: 500;
-    transition: 0.8s ease;
     text-transform: capitalize;
-    position: relative;
 
-    &:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 2px;
-      width: 0;
-      background: @primary-active;
-      transition: width 0.8s ease;
-    }
-
-    &.isActive {
-      color: @primary-active;
+    li {
+      padding: 1.2rem;
+      transition: 0.8s ease;
+      position: relative;
 
       &:after {
-        width: 100%;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 0;
+        background: @primary-active;
+        transition: width 0.8s ease;
+      }
+
+      &.isActive {
+        color: @primary-active;
+
+        &:after {
+          width: 100%;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
       }
     }
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-.contacts-block {
-  li {
-    color: @primary-inactive;
-    display: inline-block;
-    padding: 1rem;
-    font-size: 1.3rem;
-    transition: 0.5s ease;
-
-    &:hover {
-      cursor: pointer;
-      color: @primary;
-      transform: translateY(-0.2rem);
-    }
   }
 
-  .burger-menu-btn {
-    margin: 1rem;
-    display: none;
-    font-size: 1.5rem;
+  .contacts-block {
+    li {
+      color: @primary-inactive;
+      display: inline-block;
+      padding: 1rem;
+      font-size: 1.3rem;
+      transition: 0.5s ease;
+
+      &:hover {
+        cursor: pointer;
+        color: @primary;
+        transform: translateY(-0.2rem);
+      }
+    }
   }
 }
 
@@ -196,6 +192,7 @@ header {
               width: 50%;
               background: @secondary;
               transition: width 0.8s ease;
+
             }
 
             &.isActive {
@@ -332,9 +329,8 @@ header {
   background-image: url("./assets/burningman/bm-thumbnail.png");
 }
 
-
 //-------------------Footer
-.footer {
+footer {
   min-height: 10rem;
   position: relative;
   background: @primary-bg;
@@ -348,13 +344,59 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
 
+    .logo {
+      max-width: 7rem;
+      max-height: 7rem;
+    }
+  }
 }
 
 
-//--------------------------Breakpoints
+//------------------------------Burger-menu
+.burger-menu {
+  background: @primary-bg;
+  font-family: Poppins, sans-serif;
+  width: 200px;
+  height: 100vh;
+  padding-left: 1rem;
+  padding-top: 4rem;
 
+  .navbar {
+    display: block;
+    color: @primary;
+    text-transform: capitalize;
+    font-size: 1rem;
+    width: 100%;
+
+    .navbar__item {
+      margin-bottom: 3rem;
+      transition: 0.8s ease;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 1.5rem;
+        height: 3px;
+        width: 0;
+        background: @primary-active;
+        transition: width .28s ease-in-out;
+      }
+
+      &.isActive {
+        color: @primary-active;
+
+        &:after {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+
+//--------------------------Breakpoints
 @media (max-width: 1100px) {
   .footer-block__copyright {
     position: absolute;
@@ -371,15 +413,9 @@ header {
     position: absolute;
   }
 
-  .header-contact-list {
-    margin-right: 2.5rem;
+  .contacts-block {
+    margin-right: 4rem;
   }
-
-  .burger-menu-btn {
-    display: block !important;
-    margin-left: 2rem !important;
-  }
-
 }
 
 @media (max-width: 801px) {
@@ -449,10 +485,16 @@ header {
 @media (max-width: 654px) {
   header {
     padding: 0 !important;
-  }
 
-  .header-contact-list {
-    margin-right: 0;
+    .contacts-block {
+      margin-right: 5rem;
+
+      li {
+        padding: 0.5rem;
+      }
+
+    }
+
   }
 
   .footer-block {

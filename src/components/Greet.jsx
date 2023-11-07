@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {delay} from '../common';
 import {Box} from '@mui/material';
+import Section from './common/Section';
 
-const Greet = () => {
+const Greet = ({currentSection, handleActiveSection}) => {
     const [textIndex, setTextIndex] = useState(0)
     const [slideAnimation, toggleSlideAnimation] = useState(false)
     const texts = ['React developer', 'Ui/ux designer']
@@ -24,7 +25,7 @@ const Greet = () => {
     }, [])
 
     return (
-        <section id='home' className='greet'>
+        <Section id='home' className='greet' currentSection={currentSection} onSectionChange={handleActiveSection}>
             <Box className='container'>
                 <div className='greet__main-text'>
                     <p className='greet__label description'>welcome to my world</p>
@@ -34,7 +35,7 @@ const Greet = () => {
                     <h1 className='greet__subtitle'>based in Ukraine</h1>
                 </div>
             </Box>
-        </section>
+        </Section>
     );
 };
 

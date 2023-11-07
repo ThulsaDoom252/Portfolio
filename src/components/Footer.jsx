@@ -8,13 +8,13 @@ const Footer = () => {
     const classes = useStyles()
 
     return (
-        <footer className='footer'>
+        <footer>
             <Box className='footer-block'>
                 <Box display='flex' alignItems='center'>
                     <Logo/>
                     <Typography fontSize='2rem' fontWeight={700}>ThulsaDev</Typography>
                 </Box>
-                <Contacts classes={classes} showButton={false} showBurgerButton={false} iconSize={30}/>
+                <Contacts classes={classes} showButton={false}  iconSize={30}/>
                 <Typography className='footer-block__copyright description' fontSize='1rem'>Copyright © 2023
                     ThulsaDev-Themes.
                     All Rights

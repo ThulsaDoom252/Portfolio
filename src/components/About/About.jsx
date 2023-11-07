@@ -4,11 +4,14 @@ import aboutPhoto from '../../assets/photo01.jpg'
 import AboutMenu from './About-menu';
 import Skills from './Skills';
 import Experience from './Experience';
-import {experience, skills} from '../../common';
+import {skills} from '../../common';
+import Section from '../common/Section';
 
-const About = ({activeSection, setActiveSection}) => {
+const About = ({aboutActiveBlock, setAboutActiveBlock, handleActiveSection, currentSection}) => {
+
     return (
-        <section id='about' className='about portfolio-section'>
+        <Section id='about' className='about portfolio-section' onSectionChange={handleActiveSection}
+                 currentSection={currentSection}>
             <Box className='container'>
                 <Box className='about__row'>
                     <div className='about__first-col'>
@@ -22,15 +25,14 @@ const About = ({activeSection, setActiveSection}) => {
                                     Crafting perfection</p>
                             </div>
                             <div className='about__bottom'>
-                                <AboutMenu {...{activeSection, setActiveSection}}/>
-                                {activeSection === skills && <Skills/>}
-                                {activeSection === experience && <Experience/>}
+                                <AboutMenu {...{aboutActiveBlock, setAboutActiveBlock}}/>
+                                {aboutActiveBlock === skills ? <Skills/> : <Experience/>}
                             </div>
                         </div>
                     </div>
                 </Box>
             </Box>
-        </section>
+        </Section>
     );
 };
 

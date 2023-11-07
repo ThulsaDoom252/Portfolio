@@ -48,7 +48,7 @@ const Project = ({
                         <a target={'_blank'} href={deployLink}>View project</a>
                     </GridItem>
                 </Grid>
-                <Contacts showBurgerButton={false} showButton={false} iconSize={30}/>
+                <Contacts showButton={false} iconSize={30}/>
                 <Box className='project-details__thumbnail'>
                     <img src={titleImage} alt="title-img"/>
                 </Box>
