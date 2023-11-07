@@ -20,8 +20,8 @@ export const projectItems = [
         titleImage: firedriveTite,
         image01: firedriveImage01,
         image02: firedriveImage02,
-        gitLink: '',
-        deployLink: '',
+        gitLink: 'https://github.com/ThulsaDoom252/FireDrive',
+        deployLink: 'https://firedrive2-4137d.web.app/',
     },
     {
         title: 'social-network',
@@ -33,8 +33,8 @@ export const projectItems = [
         titleImage: networkTitle,
         image01: networkImage01,
         image02: networkImage02,
-        gitLink: '',
-        deployLink: '',
+        gitLink: 'https://github.com/ThulsaDoom252/Social-network-mobx',
+        deployLink: 'https://social-network-mobx.vercel.app/',
     },
     {
         title: 'chatlink',
@@ -46,7 +46,7 @@ export const projectItems = [
         titleImage: chatTitle,
         image01: chatImage01,
         image02: '',
-        gitLink: '',
-        deployLink: '',
+        gitLink: 'https://github.com/ThulsaDoom252/ChatLink',
+        deployLink: 'https://chat-link-eight.vercel.app/',
     },
 ]

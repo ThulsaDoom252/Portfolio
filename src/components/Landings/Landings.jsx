@@ -34,6 +34,8 @@ const Landings = ({isLandingDetailsVisible, handleLandingDetails}) => {
                                      title={item.title}
                                      branch={item.branch}
                                      type={item.type}
+                                     gitLink={item.gitLink}
+                                     deployLink={item.deployLink}
                                      subtitle={item.subTitle}
                                      titleImage={item.titleImage}
                                      image01={item.image01}

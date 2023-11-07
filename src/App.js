@@ -7,22 +7,31 @@ import Greet from './components/Greet';
 import AboutContainer from './components/About/AboutContainer';
 import Projects from './components/Projects/Projects';
 import Landings from './components/Landings/Landings';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import useWindowDimensions from './hooks/useWindowDimensions';
 import ProjectsContainer from './components/Projects/ProjectsContainer';
 import {useEffect, useState} from 'react';
 import LandingsContainer from './components/Landings/LandingsContainer';
+import FooterContainer from './components/Footer/FooterContainer';
 
 function App() {
 
     const [currentSection, setCurrentSection] = useState(null)
     const [isSticky, setIsSticky] = useState(false)
 
+    const {width: currentScreenWidth} = useWindowDimensions()
+
     const handleActiveSection = (section, isProjectSection) => {
         if (section !== currentSection) {
-            !isProjectSection && setCurrentSection(section)
+            !isProjectSection && setCurrentSection(section);
             const targetElement = document.getElementById(section);
-            targetElement && targetElement.scrollIntoView()
+            if (targetElement) {
+                const offset = 100;
+                window.scrollTo({
+                    top: targetElement.offsetTop - offset,
+                    behavior: 'smooth'
+                });
+            }
         }
     }
 
@@ -63,17 +72,18 @@ function App() {
 
 
     return (
-        <ThemeProvider theme={theme}>
+        <>
             <HeaderContainer currentSection={currentSection} isSticky={isSticky}
-                             handleActiveSection={handleActiveSection}/>
+                             handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
             <Greet currentSection={currentSection} handleActiveSection={handleActiveSection}/>
             <main>
                 <AboutContainer handleActiveSection={handleActiveSection} currentSection={currentSection}/>
                 <ProjectsContainer handleActiveSection={handleActiveSection}/>
                 <LandingsContainer handleActiveSection={handleActiveSection}/>
             </main>
-            <Footer/>
-        </ThemeProvider>
+            <FooterContainer currentScreenWidth={currentScreenWidth}/>
+        </>
+
     );
 }
 

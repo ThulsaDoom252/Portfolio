@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, Button, Grid} from '@mui/material';
-import Contacts from './Contacts';
+import Contacts from './Contacts/Contacts';
 import GridItem from './GridItem';
 import {useStyles} from '../../muiStyles';
 
@@ -36,7 +36,7 @@ const Project = ({
                         <p>{branch}</p>
                     </GridItem>
                     <GridItem padding='none' xs={6} md={4}>
-                        <p className='project-details__subtitle'>Project type</p>
+                        <p className='project-details__subtitle'>Type</p>
                         <p>{type}</p>
                     </GridItem>
                     <GridItem padding='none' xs={6} md={4}>
@@ -44,8 +44,8 @@ const Project = ({
                         <a target='_blank' href={gitLink}>View source code</a>
                     </GridItem>
                     <GridItem padding='none' xs={6} md={4}>
-                        <p className='project-details__subtitle'>Program</p>
-                        <a target={'_blank'} href={deployLink}>View project</a>
+                        <p className='project-details__subtitle'>Deployed</p>
+                        <a target={'_blank'}  href={deployLink}>View</a>
                     </GridItem>
                 </Grid>
                 <Contacts showButton={false} iconSize={30}/>

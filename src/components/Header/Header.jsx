@@ -1,23 +1,25 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Box} from '@mui/material';
 import Logo from './Logo';
 import Navbar from './Navbar';
-import Contacts from '../common/Contacts';
+import Contacts from '../common/Contacts/Contacts';
 import {CiMenuBurger} from 'react-icons/ci';
 import Drawer from '@mui/material/Drawer';
 import BurgerMenu from '../BurgerMenu';
+import {IoClose} from 'react-icons/io5';
 
-const Header = ({currentSection, handleActiveSection, classes, currentScreenWidth, isSticky}) => {
+const Header = ({
+                    currentSection,
+                    handleActiveSection,
+                    classes,
+                    currentScreenWidth,
+                    isSticky,
+                    isDrawerOpen,
+                    handleDrawerOpen,
+                    handleDrawerClose
+                }) => {
 
-    const [open, setOpen] = useState(false);
-
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
+    const widthToShowDrawer = 894
 
     return (
         <header className={`h-20 justify-between flex items-center  ${isSticky && 'sticky-header'}`}>
@@ -29,18 +31,24 @@ const Header = ({currentSection, handleActiveSection, classes, currentScreenWidt
                 <Navbar currentSection={currentSection} handleActiveSection={handleActiveSection}/>
             </Box>
             <Contacts classes={classes} currentScreenWidth={currentScreenWidth}/>
-            {currentScreenWidth <= 894 &&
-                <button onClick={handleDrawerOpen} className='absolute right-10 z-10'><CiMenuBurger size={30}/>
-                </button>}
-            <div>
-                <Drawer anchor="right"
-                        open={open}
-                        variant='temporary'
-                        onClose={handleDrawerClose}>
-                    <BurgerMenu onClick={handleDrawerClose} currentSection={currentSection}
-                                handleActiveSection={handleActiveSection}/>
-                </Drawer>
-            </div>
+            {currentScreenWidth <= widthToShowDrawer &&
+                <>
+                    <button onClick={isDrawerOpen ? handleDrawerClose : handleDrawerOpen}
+                            className='burger-menu-button absolute right-10 z-10'>
+                        {isDrawerOpen ? <IoClose size={25}/> : <CiMenuBurger size={30}/>}
+
+                    </button>
+                    <div>
+                        <Drawer anchor="right"
+                                open={isDrawerOpen}
+                                sx={{zIndex: 9}}
+                                variant='temporary'
+                                onClose={handleDrawerClose}>
+                            <BurgerMenu onClick={handleDrawerClose} currentSection={currentSection}
+                                        handleActiveSection={handleActiveSection}/>
+                        </Drawer>
+                    </div>
+                </>}
         </header>
     );
 };

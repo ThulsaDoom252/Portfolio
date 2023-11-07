@@ -16,8 +16,8 @@ export const landingItems = [
         titleImage: burningManTitle,
         image01: burningManImage01,
         image02: '',
-        gitLink: '',
-        deployLink: '',
+        gitLink: 'https://github.com/ThulsaDoom252/Burning-man',
+        deployLink: 'https://burning-man-navy.vercel.app/',
     },
     {
         title: 'barber-shop',
@@ -29,7 +29,7 @@ export const landingItems = [
         titleImage: barberTitle,
         image01: barberImage01,
         image02: barberImage02,
-        gitLink: '',
-        deployLink: '',
+        gitLink: 'https://github.com/ThulsaDoom252/landing-barber.git',
+        deployLink: 'https://landing-barber-ukjj.vercel.app/',
     }
 ]
