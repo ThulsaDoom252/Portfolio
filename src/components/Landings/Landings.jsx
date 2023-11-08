@@ -5,7 +5,7 @@ import ProjectItem from '../common/ProjectItem';
 import {landingItems} from './content';
 import Project from '../common/Project';
 
-const Landings = ({isLandingDetailsVisible, handleLandingDetails}) => {
+const Landings = ({isLandingDetailsVisible, handleLandingDetails, currentScreenWidth}) => {
     return (
         <section id='landings'
                  className={`projects landings portfolio-section ${isLandingDetailsVisible ? 'project-details' : 'projects-list'}`}>
@@ -30,6 +30,7 @@ const Landings = ({isLandingDetailsVisible, handleLandingDetails}) => {
                     </> : <>
                         {landingItems.map((item, index) => (
                             <Project key={index}
+                                     currentScreenWidth={currentScreenWidth}
                                      onClick={() => handleLandingDetails('landings')}
                                      title={item.title}
                                      branch={item.branch}

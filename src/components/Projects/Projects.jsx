@@ -5,7 +5,7 @@ import ProjectItem from '../common/ProjectItem';
 import Project from '../common/Project';
 import {projectItems} from './content';
 
-const Projects = ({isProjectDetailsVisible, handleProjectDetails}) => {
+const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenWidth}) => {
     return (
         <section id='projects'
                  className={`projects portfolio-section ${isProjectDetailsVisible ? 'project-details' : 'projects-list'}`}>
@@ -28,6 +28,7 @@ const Projects = ({isProjectDetailsVisible, handleProjectDetails}) => {
                             </Grid>
                         </Box>
                     </> : <>{projectItems.map((item, index) => <Project
+                        currentScreenWidth={currentScreenWidth}
                         key={index}
                         onClick={() => handleProjectDetails('projects')}
                         title={item.title} subtitle={item.subTitle}

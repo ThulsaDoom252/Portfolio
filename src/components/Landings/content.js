@@ -3,7 +3,7 @@ import burningManImage01 from "../../assets/burningman/bm_content.jpg"
 
 import barberTitle from "../../assets/barber/barber_header.jpg"
 import barberImage01 from "../../assets/barber/barber_history.jpg"
-import barberImage02 from "../../assets/barber/barber_history.jpg"
+import barberImage02 from "../../assets/barber/barber_services.jpg"
 
 export const landingItems = [
     {
@@ -15,7 +15,7 @@ export const landingItems = [
         itemThumbnailClass: 'thumbnail-burning-man',
         titleImage: burningManTitle,
         image01: burningManImage01,
-        image02: '',
+        image02: null,
         gitLink: 'https://github.com/ThulsaDoom252/Burning-man',
         deployLink: 'https://burning-man-navy.vercel.app/',
     },

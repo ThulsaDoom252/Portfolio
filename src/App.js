@@ -78,8 +78,8 @@ function App() {
             <Greet currentSection={currentSection} handleActiveSection={handleActiveSection}/>
             <main>
                 <AboutContainer handleActiveSection={handleActiveSection} currentSection={currentSection}/>
-                <ProjectsContainer handleActiveSection={handleActiveSection}/>
-                <LandingsContainer handleActiveSection={handleActiveSection}/>
+                <ProjectsContainer handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
+                <LandingsContainer handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
             </main>
             <FooterContainer currentScreenWidth={currentScreenWidth}/>
         </>

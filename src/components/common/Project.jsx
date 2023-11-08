@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Button, Grid} from '@mui/material';
+import {Box, Button, Divider, Grid} from '@mui/material';
 import Contacts from './Contacts/Contacts';
 import GridItem from './GridItem';
 import {useStyles} from '../../muiStyles';
@@ -17,16 +17,26 @@ const Project = ({
                      key,
                      type,
                      branch,
+                     currentScreenWidth,
                  }) => {
     const classes = useStyles()
+
+    const projectButtonStyle = {
+        color: 'black',
+        border: 'gray solid 1px',
+        fontSize: '0.8rem',
+        width: currentScreenWidth <= 510 ? '200px' : '300px',
+    }
+
     return (
         <Box key={key} id={title} className='project-details__block'>
-            <Box display='flex' justifyContent='space-between'>
+            <Box display='flex' justifyContent='space-between' alignItems='center'>
                 <h1 className='project-details__title title capitalize'>{title}</h1>
                 <Button className={classes.customButton}
                         onClick={onClick}
-                        sx={{color: 'black', border: 'gray solid 1px', width: '300px'}}>Back to list</Button>
+                        sx={projectButtonStyle}>Back to list</Button>
             </Box>
+            <Divider/>
             <p className='project-details__subtitle'>{subtitle}</p>
             <p>{description}</p>
             <Box>
@@ -45,7 +55,7 @@ const Project = ({
                     </GridItem>
                     <GridItem padding='none' xs={6} md={4}>
                         <p className='project-details__subtitle'>Deployed</p>
-                        <a target={'_blank'}  href={deployLink}>View</a>
+                        <a target={'_blank'} href={deployLink}>View</a>
                     </GridItem>
                 </Grid>
                 <Contacts showButton={false} iconSize={30}/>
@@ -55,9 +65,10 @@ const Project = ({
                 <Box className='project-details__thumbnail'>
                     <img src={image01} alt="title-img"/>
                 </Box>
-                <Box className='project-details__thumbnail'>
-                    <img src={image02} alt="title-img"/>
-                </Box>
+                {image02 &&
+                    <Box className='project-details__thumbnail'>
+                        <img src={image02} alt="title-img"/>
+                    </Box>}
             </Box>
         </Box>
     );

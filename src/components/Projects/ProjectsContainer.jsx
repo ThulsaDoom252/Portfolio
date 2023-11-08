@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Projects from './Projects';
 import {delay} from '../../common';
 
-const ProjectsContainer = ({handleActiveSection}) => {
+const ProjectsContainer = ({handleActiveSection, currentScreenWidth}) => {
     const [isProjectDetailsVisible, toggleProjectDetails] = useState(false)
 
     const handleProjectDetails = async (section) => {
@@ -11,7 +11,7 @@ const ProjectsContainer = ({handleActiveSection}) => {
         handleActiveSection(section)
     }
 
-    return <Projects isProjectDetailsVisible={isProjectDetailsVisible} handleProjectDetails={handleProjectDetails}/>
+    return <Projects currentScreenWidth={currentScreenWidth} isProjectDetailsVisible={isProjectDetailsVisible} handleProjectDetails={handleProjectDetails}/>
 };
 
 export default ProjectsContainer;

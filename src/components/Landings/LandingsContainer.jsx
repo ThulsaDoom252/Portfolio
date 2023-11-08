@@ -3,7 +3,7 @@ import Landings from './Landings';
 import {delay} from '../../common';
 
 
-const LandingsContainer = ({handleActiveSection}) => {
+const LandingsContainer = ({handleActiveSection, currentScreenWidth}) => {
     const [isLandingDetailsVisible, toggleLandingDetails] = useState(false)
 
     const handleLandingDetails = async (section) => {
@@ -12,7 +12,7 @@ const LandingsContainer = ({handleActiveSection}) => {
         handleActiveSection(section)
     }
 
-    return <Landings isLandingDetailsVisible={isLandingDetailsVisible} handleLandingDetails={handleLandingDetails}/>
+    return <Landings isLandingDetailsVisible={isLandingDetailsVisible} handleLandingDetails={handleLandingDetails} currentScreenWidth={currentScreenWidth}/>
 };
 
 export default LandingsContainer;

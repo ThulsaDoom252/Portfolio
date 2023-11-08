@@ -6,6 +6,8 @@ const primaryColor = '#fff6f6'
 const activeColor = '#f9004d'
 const btnBorderColor = '#575151'
 
+const prtojectBtnColor = '#212020'
+
 // mui custom theme
 export const theme = createTheme({
     palette: {
@@ -34,4 +36,11 @@ export const useStyles = makeStyles((theme) => ({
             backgroundColor: `${theme.palette.primary.active} !important`,
         },
     },
+
+
+    projectButton: {
+        width: 300,
+        color: prtojectBtnColor,
+        border: 'gray solid 1px',
+    }
 }));
