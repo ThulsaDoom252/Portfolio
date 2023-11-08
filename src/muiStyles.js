@@ -2,9 +2,9 @@ import {createTheme} from '@mui/material';
 import {makeStyles} from '@mui/styles'
 
 // theme colors variables
-const primaryColor = '#fff6f6'
-const activeColor = '#f9004d'
-const btnBorderColor = '#575151'
+export const primaryColor = '#fff6f6'
+export const activeColor = '#f9004d'
+export const btnBorderColor = '#575151'
 
 const prtojectBtnColor = '#212020'
 

@@ -30,7 +30,7 @@ const Header = ({
                 <Logo/>
                 <Navbar currentSection={currentSection} handleActiveSection={handleActiveSection}/>
             </Box>
-            <Contacts classes={classes} currentScreenWidth={currentScreenWidth}/>
+            <Contacts classes={classes} currentScreenWidth={currentScreenWidth} showButton={false}/>
             {currentScreenWidth <= widthToShowDrawer &&
                 <>
                     <button onClick={isDrawerOpen ? handleDrawerClose : handleDrawerOpen}

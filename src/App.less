@@ -82,7 +82,7 @@ header {
 //__________________________Greet section
 //toDo optimize background code
 .greet {
-  background-image: url(bg.png);
+  background-image: url(./assets/bg.png);
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -242,7 +242,7 @@ header {
   }
 
   .project__thumbnail-firedrive {
-    background-image: url("fd_thumbnail.png");
+    background-image: url("./assets/firedrive/fd_thumbnail.png");
   }
 
   .project__thumbnail-network {
@@ -250,7 +250,7 @@ header {
   }
 
   .project__thumbnail-chatlink {
-    background-image: url("chat_thumbnail.jpg");
+    background-image: url("./assets/chatlink/chat_thumbnail.jpg");
   }
 
   .project__content {
@@ -327,11 +327,52 @@ header {
 }
 
 .thumbnail-barber {
-  background-image: url("br_thumbnail.png");
+  background-image: url("./assets/barber/br_thumbnail.png");
 }
 
 .thumbnail-burning-man {
   background-image: url("./assets/burningman/bm-thumbnail.png");
+}
+
+//----------------------Contact Form
+
+.contact-form {
+  input {
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+    border: 2px solid hsla(0, 0%, 100%, .2);
+    background: transparent;
+    border-radius: 5px;
+    transition: all .3s ease;
+    height: 50px;
+    line-height: 46px;
+    margin-bottom: 20px;
+    outline: none;
+    color: @primary;
+    font-size: 15px;
+    letter-spacing: .1px;
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+    border: 2px solid hsla(0, 0%, 100%, .2);
+    border-radius: 5px;
+    transition: all .3s ease;
+    height: 120px;
+    line-height: 46px;
+    margin-bottom: 20px;
+    outline: none;
+    color: @primary;
+    font-size: 15px;
+    letter-spacing: .1px;
+    overflow: auto;
+    resize: none;
+    vertical-align: top;
+    background: transparent;
+  }
 }
 
 //-------------------Footer
@@ -525,7 +566,8 @@ header {
   }
 
   .footer {
-      min-height: 15rem !important;
+    min-height: 15rem !important;
+
     .footer-block {
       flex-direction: column;
 
@@ -546,6 +588,7 @@ header {
     .project-details__title {
       font-size: 1.5rem;
     }
+
     .project-details__subtitle {
       font-size: 1.2rem;
     }

@@ -13,6 +13,7 @@ import ProjectsContainer from './components/Projects/ProjectsContainer';
 import {useEffect, useState} from 'react';
 import LandingsContainer from './components/Landings/LandingsContainer';
 import FooterContainer from './components/Footer/FooterContainer';
+import ContactForm from './components/ContactForm';
 
 function App() {
 
@@ -80,6 +81,7 @@ function App() {
                 <AboutContainer handleActiveSection={handleActiveSection} currentSection={currentSection}/>
                 <ProjectsContainer handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
                 <LandingsContainer handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
+                <ContactForm/>
             </main>
             <FooterContainer currentScreenWidth={currentScreenWidth}/>
         </>
