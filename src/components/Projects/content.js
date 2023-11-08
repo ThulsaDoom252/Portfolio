@@ -1,13 +1,13 @@
 import firedriveTite from "../../assets/firedrive/fd_videos.jpg"
 import firedriveImage01 from "../../assets/firedrive/fd_pics02.jpg"
-import firedriveImage02 from "../../assets/firedrive/audio.jpg"
+import firedriveImage02 from "../../assets/firedrive/fd_audio.jpg"
 
 import networkTitle from "../../assets/social-network/sn_auth.jpg"
 import networkImage01 from "../../assets/social-network/sn_edit.jpg"
 import networkImage02 from "../../assets/social-network/sn_users.jpg"
 
-import chatTitle from "../../assets/chatlink/chatlink01.jpg"
-import chatImage01 from "../../assets/chatlink/chatlink02.jpg"
+import chatTitle from "../../assets/chatlink/chat01.jpg"
+import chatImage01 from "../../assets/chatlink/chat02.jpg"
 
 export const projectItems = [
     {

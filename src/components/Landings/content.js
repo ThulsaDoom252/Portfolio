@@ -1,9 +1,9 @@
-import burningManTitle from '../../assets/burningman/bm_header.jpg'
-import burningManImage01 from "../../assets/burningman/bm_content.jpg"
+import burningManTitle from '../../assets/burningman/bm01.jpg'
+import burningManImage01 from "../../assets/burningman/bm02.jpg"
 
-import barberTitle from "../../assets/barber/barber_header.jpg"
-import barberImage01 from "../../assets/barber/barber_history.jpg"
-import barberImage02 from "../../assets/barber/barber_services.jpg"
+import barberTitle from "../../assets/barber/br01.jpg"
+import barberImage01 from "../../assets/barber/br02.jpg"
+import barberImage02 from "../../assets/barber/br03.jpg"
 
 export const landingItems = [
     {
