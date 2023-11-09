@@ -13,7 +13,7 @@ import ProjectsContainer from './components/Projects/ProjectsContainer';
 import {useEffect, useState} from 'react';
 import LandingsContainer from './components/Landings/LandingsContainer';
 import FooterContainer from './components/Footer/FooterContainer';
-import ContactForm from './components/ContactForm';
+import ContactForm from './components/ContactForm/ContactForm';
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
                 const offset = 100;
                 window.scrollTo({
                     top: targetElement.offsetTop - offset,
-                    behavior: 'smooth'
+                    behavior: 'instant'
                 });
             }
         }
@@ -38,12 +38,25 @@ function App() {
 
     useEffect(() => {
         const stickyPos = 100
+        const greetPos = 410
+        const aboutPos = greetPos + 10
+        const projectPos = 870
+        const landingPos = 2200
+        const ContactPos = 2650
         const handleScroll = () => window.scrollY > stickyPos ? setIsSticky(true) : setIsSticky(false)
 
-        window.addEventListener('scroll', handleScroll);
+        const handleCurrentSection = () => {
+            window.scrollY >= 0 && window.scrollY <= greetPos ? setCurrentSection('home') :
+                window.scrollY >= aboutPos && window.scrollY < projectPos ? setCurrentSection('about') :
+                    (window.scrollY >= projectPos && window.scrollY) < landingPos ? setCurrentSection('projects')
+                        : window.scrollY >= landingPos && window.scrollY < ContactPos ? setCurrentSection('landings') : window.scrollY >= ContactPos ? setCurrentSection('contact') : void 0
+        }
 
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleCurrentSection)
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleCurrentSection)
         };
     }, []);
 
@@ -52,14 +65,23 @@ function App() {
     //         (entries) => {
     //             entries.forEach((entry) => {
     //                 if (entry.isIntersecting) {
-    //                     setCurrentSection(entry.target.id);
+    //                     entry.target.id !== currentSection && setCurrentSection(entry.target.id);
     //                 }
+    //
     //             });
     //         },
     //         {
     //             rootMargin: '-100px 0px 0px 0px' // отступ от верхней границы viewport
     //         }
     //     );
+    //     const sections = document.querySelectorAll('section')
+    //     sections.forEach((section) => {
+    //         sections.forEach((section) => {
+    //             observer.observe(section)
+    //         })
+    //     })
+    //
+    // }, [])
     //     const sections = document.querySelectorAll('section');
     //     sections.forEach((section) => {
     //         observer.observe(section);
@@ -85,7 +107,6 @@ function App() {
             </main>
             <FooterContainer currentScreenWidth={currentScreenWidth}/>
         </>
-
     );
 }
 

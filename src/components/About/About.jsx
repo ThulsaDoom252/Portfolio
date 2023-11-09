@@ -10,8 +10,10 @@ import Section from '../common/Section';
 const About = ({aboutActiveBlock, setAboutActiveBlock, handleActiveSection, currentSection}) => {
 
     return (
-        <Section id='about' className='about portfolio-section' onSectionChange={handleActiveSection}
-                 currentSection={currentSection}>
+        <section id='about' className='about portfolio-section'
+                 // onSectionChange={handleActiveSection}
+                 // currentSection={currentSection}
+        >
             <Box className='container'>
                 <Box className='about__row'>
                     <div className='about__first-col'>
@@ -32,7 +34,7 @@ const About = ({aboutActiveBlock, setAboutActiveBlock, handleActiveSection, curr
                     </div>
                 </Box>
             </Box>
-        </Section>
+        </section>
     );
 };
 

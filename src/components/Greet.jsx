@@ -25,7 +25,11 @@ const Greet = ({currentSection, handleActiveSection}) => {
     }, [])
 
     return (
-        <Section id='home' className='greet' currentSection={currentSection} onSectionChange={handleActiveSection}>
+        <section id='home'
+                 className='greet'
+                 // currentSection={currentSection}
+                 // onSectionChange={handleActiveSection}
+        >
             <Box className='container'>
                 <div className='greet__main-text'>
                     <p className='greet__label description'>welcome to my world</p>
@@ -35,7 +39,7 @@ const Greet = ({currentSection, handleActiveSection}) => {
                     <h1 className='greet__subtitle'>based in Ukraine</h1>
                 </div>
             </Box>
-        </Section>
+        </section>
     );
 };
 
