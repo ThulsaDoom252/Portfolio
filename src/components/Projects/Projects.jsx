@@ -4,10 +4,11 @@ import GridItem from '../common/GridItem';
 import ProjectItem from '../common/ProjectItem';
 import Project from '../common/Project';
 import {projectItems} from './content';
+import Section from '../common/Section';
 
 const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenWidth}) => {
     return (
-        <section id='projects'
+        <Section id='projects'
                  className={`projects portfolio-section ${isProjectDetailsVisible ? 'project-details' : 'projects-list'}`}>
             <Box className='container'>
                 {!isProjectDetailsVisible ?
@@ -19,12 +20,13 @@ const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenW
                         </Box>
                         <Box className='row'>
                             <Grid container display='flex' alignItems='center' justifyContent='left'>
-                                {projectItems.map((item, index) => (<GridItem key={index}>
-                                    <ProjectItem thumbnail={item.itemThumbnailClass}
-                                                 onClick={() => handleProjectDetails(item.title)}
-                                                 title={item.title}
-                                                 description={item.subTitle}/>
-                                </GridItem>))}
+                                {projectItems.map((item, index) => (
+                                    <GridItem index={index}>
+                                        <ProjectItem thumbnail={item.itemThumbnailClass}
+                                                     onClick={() => handleProjectDetails(item.title)}
+                                                     title={item.title}
+                                                     description={item.subTitle}/>
+                                    </GridItem>))}
                             </Grid>
                         </Box>
                     </> : <>{projectItems.map((item, index) => <Project
@@ -42,8 +44,9 @@ const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenW
                         image02={item.image02}
                     />)}</>}
             </Box>
+        </Section>
 
-        </section>
+
     );
 };
 

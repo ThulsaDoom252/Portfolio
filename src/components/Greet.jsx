@@ -25,21 +25,16 @@ const Greet = ({currentSection, handleActiveSection}) => {
     }, [])
 
     return (
-        <section id='home'
-                 className='greet'
-                 // currentSection={currentSection}
-                 // onSectionChange={handleActiveSection}
-        >
+        <Section id='home' className='greet portfolio-section'>
             <Box className='container'>
                 <div className='greet__main-text'>
                     <p className='greet__label description'>welcome to my world</p>
-                    <h1 className='greet__title'>Hi, i'm Vladimir <br/><h1
-                        className={`${slideAnimation && 'greet-animated-slide'} ${textIndex === 0 ? 'greet__react-text' : 'greet__designer-text'}`}>{texts[textIndex]}</h1>
-                    </h1>
+                    <h1 className='greet__title'>Hi, i,m Vladimir</h1>
+                    <h1 className={` greet__title ${slideAnimation && 'greet-animated-slide'} ${textIndex === 0 ? 'greet__react-text' : 'greet__designer-text'}`}>{texts[textIndex]}</h1>
                     <h1 className='greet__subtitle'>based in Ukraine</h1>
                 </div>
             </Box>
-        </section>
+        </Section>
     );
 };
 

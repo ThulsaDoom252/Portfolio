@@ -1,23 +1,17 @@
-import React, {useEffect} from 'react';
-import {useInView} from 'react-intersection-observer'
+import React from 'react';
+import {Waypoint} from 'react-waypoint';
 
-const Section = ({id, onSectionChange, className, children, currentSection}) => {
 
-    const [ref, inView] = useInView({
-        threshold: 0.1
-    })
-
-    // useEffect(() => {
-    //     if (inView && currentSection !== id) {
-    //         onSectionChange(id)
-    //     }
-    // }, [inView, id, currentSection, onSectionChange]);
-
+const Section = ({id, onEnter = () => void 0, className, children, topOffset = '90%'}) => {
 
     return (
-        <section id={id} ref={ref} className={className}>
-            {children}
-        </section>
+        <Waypoint onEnter={onEnter} topOffset={topOffset}>
+            <section id={id}
+                     className={className}>
+                {children}
+            </section>
+        </Waypoint>
+
     );
 };
 

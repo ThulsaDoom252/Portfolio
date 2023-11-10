@@ -13,7 +13,7 @@ const Skills = () => {
     ]
     return (
         <ul>
-            {skills.map((skill, index) => <li className='about__skills description'>
+            {skills.map((skill, index) => <li key={index} className='about__skills description'>
                 <p className='about__skills-title'>{skill.firstLabel}</p>
                 <p>{skill.secondLabel}</p>
             </li>)}

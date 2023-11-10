@@ -2,6 +2,7 @@ import React from 'react';
 import {Box, Button} from '@mui/material';
 import {activeColor, primaryColor, useStyles} from '../../muiStyles';
 import {email, phoneNumber} from './contacts';
+import Section from '../common/Section';
 
 const ContactForm = () => {
     const classes = useStyles()
@@ -34,7 +35,7 @@ const ContactForm = () => {
     }
 
     return (
-        <section id='contact' className='portfolio-section'>
+        <Section id='contact' className='portfolio-section'>
             <Box className='container'>
                 <h1 className='title text-center'>Contact Me</h1>
                 <p style={{color: 'red'}} className='description  text-center'>Sorry, form is currently disabled</p>
@@ -52,7 +53,7 @@ const ContactForm = () => {
                     </Box>
                 </form>
             </Box>
-        </section>
+        </Section>
     );
 };
 

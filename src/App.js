@@ -1,13 +1,8 @@
 import './App.less';
 import 'reset-css';
-import {ThemeProvider} from '@mui/material';
-import {theme, useStyles} from "./muiStyles"
 import HeaderContainer from './components/Header/HeaderContainer';
 import Greet from './components/Greet';
 import AboutContainer from './components/About/AboutContainer';
-import Projects from './components/Projects/Projects';
-import Landings from './components/Landings/Landings';
-import Footer from './components/Footer/Footer';
 import useWindowDimensions from './hooks/useWindowDimensions';
 import ProjectsContainer from './components/Projects/ProjectsContainer';
 import {useEffect, useState} from 'react';
@@ -22,9 +17,10 @@ function App() {
 
     const {width: currentScreenWidth} = useWindowDimensions()
 
+
     const handleActiveSection = (section, isProjectSection) => {
         if (section !== currentSection) {
-            !isProjectSection && setCurrentSection(section);
+            // !isProjectSection && setCurrentSection(section);
             const targetElement = document.getElementById(section);
             if (targetElement) {
                 const offset = 100;
@@ -53,12 +49,13 @@ function App() {
         }
 
         window.addEventListener('scroll', handleScroll);
-        window.addEventListener('scroll', handleCurrentSection)
+        // window.addEventListener('scroll', handleCurrentSection)
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('scroll', handleCurrentSection)
+            // window.removeEventListener('scroll', handleCurrentSection)
         };
     }, []);
+
 
     // useEffect(() => {
     //     const observer = new IntersectionObserver(
@@ -71,26 +68,23 @@ function App() {
     //             });
     //         },
     //         {
-    //             rootMargin: '-100px 0px 0px 0px' // отступ от верхней границы viewport
+    //             rootMargin: '500px 0px 0px 0px' // отступ от верхней границы viewport
     //         }
     //     );
-    //     const sections = document.querySelectorAll('section')
+    //     const sections = document.querySelectorAll('.portfolio-section')
     //     sections.forEach((section) => {
     //         sections.forEach((section) => {
     //             observer.observe(section)
     //         })
     //     })
     //
-    // }, [])
-    //     const sections = document.querySelectorAll('section');
-    //     sections.forEach((section) => {
-    //         observer.observe(section);
-    //     });
     //     return () => {
     //         sections.forEach((section) => {
     //             observer.unobserve(section);
     //         });
     //     };
+    //
+    //
     // }, []);
 
 
@@ -103,7 +97,7 @@ function App() {
                 <AboutContainer handleActiveSection={handleActiveSection} currentSection={currentSection}/>
                 <ProjectsContainer handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
                 <LandingsContainer handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
-                <ContactForm/>
+                {/*<ContactForm/>*/}
             </main>
             <FooterContainer currentScreenWidth={currentScreenWidth}/>
         </>

@@ -7,13 +7,11 @@ import Experience from './Experience';
 import {skills} from '../../common';
 import Section from '../common/Section';
 
+
 const About = ({aboutActiveBlock, setAboutActiveBlock, handleActiveSection, currentSection}) => {
 
     return (
-        <section id='about' className='about portfolio-section'
-                 // onSectionChange={handleActiveSection}
-                 // currentSection={currentSection}
-        >
+        <Section id='about' className='about portfolio-section'>
             <Box className='container'>
                 <Box className='about__row'>
                     <div className='about__first-col'>
@@ -34,7 +32,7 @@ const About = ({aboutActiveBlock, setAboutActiveBlock, handleActiveSection, curr
                     </div>
                 </Box>
             </Box>
-        </section>
+        </Section>
     );
 };
 
