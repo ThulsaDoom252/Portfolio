@@ -3,7 +3,7 @@ import {delay} from '../common';
 import {Box} from '@mui/material';
 import Section from './common/Section';
 
-const Greet = ({currentSection, handleActiveSection}) => {
+const Home = () => {
     const [textIndex, setTextIndex] = useState(0)
     const [slideAnimation, toggleSlideAnimation] = useState(false)
     const texts = ['React developer', 'Ui/ux designer']
@@ -29,7 +29,7 @@ const Greet = ({currentSection, handleActiveSection}) => {
             <Box className='container'>
                 <div className='greet__main-text'>
                     <p className='greet__label description'>welcome to my world</p>
-                    <h1 className='greet__title'>Hi, i,m Vladimir</h1>
+                    <h1 className='greet__title'>Hi, i'm Vladimir</h1>
                     <h1 className={` greet__title ${slideAnimation && 'greet-animated-slide'} ${textIndex === 0 ? 'greet__react-text' : 'greet__designer-text'}`}>{texts[textIndex]}</h1>
                     <h1 className='greet__subtitle'>based in Ukraine</h1>
                 </div>
@@ -38,4 +38,4 @@ const Greet = ({currentSection, handleActiveSection}) => {
     );
 };
 
-export default Greet;
+export default Home;

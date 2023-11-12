@@ -12,7 +12,7 @@ const Landings = ({isLandingDetailsVisible, handleLandingDetails, currentScreenW
         <Section
             className={`projects landings portfolio-section ${isLandingDetailsVisible ? 'project-details' : 'projects-list'}`}
             id={'landings'}
-        ><Box className='container'>
+        ><Box className='projects-container'>
             {!isLandingDetailsVisible ?
                 <>
                     <h1 className='title text-center'>Landings</h1>

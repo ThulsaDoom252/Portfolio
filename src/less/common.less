@@ -67,13 +67,18 @@
 }
 
 //Container
-.container {
-  max-width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+.container, .projects-container {
+  max-width: 1600px !important;
+  padding-right: 1rem;
+  padding-left: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
+
+.projects-container {
+  max-width: 1300px !important;
+}
+
 
 .title {
   font-size: 3.75rem;
@@ -88,19 +93,19 @@
 }
 
 @media (min-width: 992px) {
-  .container {
+  .container, .projects-container {
     max-width: 960px;
   }
 }
 
 @media (max-width: 768px) {
-  .container {
+  .container, .projects-container {
     max-width: 720px;
   }
 }
 
 @media (max-width: 576px) {
-  .container {
+  .container, .projects-container {
     max-width: 540px;
   }
 }

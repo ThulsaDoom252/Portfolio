@@ -10,7 +10,7 @@ const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenW
     return (
         <Section id='projects'
                  className={`projects portfolio-section ${isProjectDetailsVisible ? 'project-details' : 'projects-list'}`}>
-            <Box className='container'>
+            <Box className='projects-container'>
                 {!isProjectDetailsVisible ?
                     <>
                         <Box className='projects__top-block row'>

@@ -10,7 +10,6 @@ import {IoClose} from 'react-icons/io5';
 
 const Header = ({
                     currentSection,
-                    handleActiveSection,
                     classes,
                     currentScreenWidth,
                     isSticky,
@@ -28,7 +27,7 @@ const Header = ({
                 justifyContent='space-between'
                 alignItems='center'>
                 <Logo/>
-                <Navbar currentSection={currentSection} handleActiveSection={handleActiveSection}/>
+                <Navbar currentSection={currentSection}/>
             </Box>
             <Contacts classes={classes} currentScreenWidth={currentScreenWidth} showButton={false}/>
             {currentScreenWidth <= widthToShowDrawer &&
@@ -44,8 +43,7 @@ const Header = ({
                                 sx={{zIndex: 9}}
                                 variant='temporary'
                                 onClose={handleDrawerClose}>
-                            <BurgerMenu onClick={handleDrawerClose} currentSection={currentSection}
-                                        handleActiveSection={handleActiveSection}/>
+                            <BurgerMenu onClick={handleDrawerClose} currentSection={currentSection}/>
                         </Drawer>
                     </div>
                 </>}

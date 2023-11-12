@@ -1,7 +1,7 @@
 import './App.less';
 import 'reset-css';
 import HeaderContainer from './components/Header/HeaderContainer';
-import Greet from './components/Greet';
+import Home from './components/Home';
 import AboutContainer from './components/About/AboutContainer';
 import useWindowDimensions from './hooks/useWindowDimensions';
 import ProjectsContainer from './components/Projects/ProjectsContainer';
@@ -11,92 +11,76 @@ import FooterContainer from './components/Footer/FooterContainer';
 import ContactForm from './components/ContactForm/ContactForm';
 
 function App() {
-
     const [currentSection, setCurrentSection] = useState(null)
     const [isSticky, setIsSticky] = useState(false)
 
     const {width: currentScreenWidth} = useWindowDimensions()
 
-
-    const handleActiveSection = (section, isProjectSection) => {
-        if (section !== currentSection) {
-            // !isProjectSection && setCurrentSection(section);
-            const targetElement = document.getElementById(section);
-            if (targetElement) {
-                const offset = 100;
-                window.scrollTo({
-                    top: targetElement.offsetTop - offset,
-                    behavior: 'instant'
-                });
-            }
-        }
-    }
-
     useEffect(() => {
-        const stickyPos = 100
-        const greetPos = 410
-        const aboutPos = greetPos + 10
-        const projectPos = 870
-        const landingPos = 2200
-        const ContactPos = 2650
+        const stickyPos = 50
         const handleScroll = () => window.scrollY > stickyPos ? setIsSticky(true) : setIsSticky(false)
-
-        const handleCurrentSection = () => {
-            window.scrollY >= 0 && window.scrollY <= greetPos ? setCurrentSection('home') :
-                window.scrollY >= aboutPos && window.scrollY < projectPos ? setCurrentSection('about') :
-                    (window.scrollY >= projectPos && window.scrollY) < landingPos ? setCurrentSection('projects')
-                        : window.scrollY >= landingPos && window.scrollY < ContactPos ? setCurrentSection('landings') : window.scrollY >= ContactPos ? setCurrentSection('contact') : void 0
-        }
-
         window.addEventListener('scroll', handleScroll);
-        // window.addEventListener('scroll', handleCurrentSection)
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            // window.removeEventListener('scroll', handleCurrentSection)
         };
     }, []);
 
 
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(
-    //         (entries) => {
-    //             entries.forEach((entry) => {
-    //                 if (entry.isIntersecting) {
-    //                     entry.target.id !== currentSection && setCurrentSection(entry.target.id);
-    //                 }
-    //
-    //             });
-    //         },
-    //         {
-    //             rootMargin: '500px 0px 0px 0px' // отступ от верхней границы viewport
-    //         }
-    //     );
-    //     const sections = document.querySelectorAll('.portfolio-section')
-    //     sections.forEach((section) => {
-    //         sections.forEach((section) => {
-    //             observer.observe(section)
-    //         })
-    //     })
-    //
-    //     return () => {
-    //         sections.forEach((section) => {
-    //             observer.unobserve(section);
-    //         });
-    //     };
-    //
-    //
-    // }, []);
+    const handleActiveSection = (section) => {
+        const targetElement = document.getElementById(section);
+        if (targetElement) {
+            const offset = 100;
+            window.scrollTo({
+                top: targetElement.offsetTop - offset,
+                behavior: 'instant'
+            });
+        }
+    }
 
+    useEffect(() => {
+        const handleScrollAnchor = () => {
+
+            const scrollPosition = window.scrollY;
+            const homeSection = document.getElementById('home')
+            const aboutSection = document.getElementById('about')
+            const projectsSection = document.getElementById('projects');
+            const landingsSection = document.getElementById('landings');
+
+            const offsetModifier = 7
+
+            const sectionsPos = [homeSection.offsetTop, aboutSection.offsetTop, projectsSection.offsetTop, landingsSection.offsetTop]
+
+            const modifiedSectionsPost = sectionsPos.map(section => section - offsetModifier)
+
+            if (scrollPosition >= modifiedSectionsPost[0] && scrollPosition < modifiedSectionsPost[1]) {
+                setCurrentSection('home')
+            } else if (scrollPosition >= modifiedSectionsPost[1] && scrollPosition < modifiedSectionsPost[2]) {
+                setCurrentSection('about')
+            } else if (
+                scrollPosition >= modifiedSectionsPost[2] &&
+                scrollPosition < modifiedSectionsPost[3]
+            ) {
+                setCurrentSection('projects');
+            } else if (scrollPosition >= modifiedSectionsPost[3]) {
+                setCurrentSection('landings');
+            }
+        };
+        window.addEventListener('scroll', handleScrollAnchor);
+
+        return () => {
+            window.removeEventListener('scroll', handleScrollAnchor);
+        };
+    }, []);
 
     return (
         <>
             <HeaderContainer currentSection={currentSection} isSticky={isSticky}
-                             handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
-            <Greet currentSection={currentSection} handleActiveSection={handleActiveSection}/>
+                             currentScreenWidth={currentScreenWidth}/>
+            <Home/>
             <main>
-                <AboutContainer handleActiveSection={handleActiveSection} currentSection={currentSection}/>
+                <AboutContainer/>
                 <ProjectsContainer handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
-                <LandingsContainer handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
+                <LandingsContainer currentScreenWidth={currentScreenWidth} handleActiveSection={handleActiveSection}/>
                 {/*<ContactForm/>*/}
             </main>
             <FooterContainer currentScreenWidth={currentScreenWidth}/>
