@@ -16,6 +16,7 @@ function App() {
 
     const {width: currentScreenWidth} = useWindowDimensions()
 
+    //handle sticky header on scroll
     useEffect(() => {
         const stickyPos = 50
         const handleScroll = () => window.scrollY > stickyPos ? setIsSticky(true) : setIsSticky(false)
@@ -25,18 +26,13 @@ function App() {
         };
     }, []);
 
+    //Initially setting home as active navItem
+    useEffect(() => {
+        setCurrentSection('home')
+    }, [])
 
-    const handleActiveSection = (section) => {
-        const targetElement = document.getElementById(section);
-        if (targetElement) {
-            const offset = 100;
-            window.scrollTo({
-                top: targetElement.offsetTop - offset,
-                behavior: 'instant'
-            });
-        }
-    }
 
+    // Handling active navItem on scroll
     useEffect(() => {
         const handleScrollAnchor = () => {
 
@@ -50,7 +46,7 @@ function App() {
 
             const sectionsPos = [homeSection.offsetTop, aboutSection.offsetTop, projectsSection.offsetTop, landingsSection.offsetTop]
 
-            const modifiedSectionsPost = sectionsPos.map(section => section - offsetModifier)
+            const modifiedSectionsPost = sectionsPos.map(section => section !== homeSection.offsetTop && section - offsetModifier)
 
             if (scrollPosition >= modifiedSectionsPost[0] && scrollPosition < modifiedSectionsPost[1]) {
                 setCurrentSection('home')
@@ -71,6 +67,17 @@ function App() {
             window.removeEventListener('scroll', handleScrollAnchor);
         };
     }, []);
+
+    function handleActiveSection(section) {
+        const targetElement = document.getElementById(section);
+        if (targetElement) {
+            const offset = 100;
+            window.scrollTo({
+                top: targetElement.offsetTop - offset,
+                behavior: 'instant'
+            });
+        }
+    }
 
     return (
         <>
