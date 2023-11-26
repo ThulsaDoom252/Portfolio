@@ -3,7 +3,7 @@ import Header from './Header';
 import {useStyles} from '../../muiStyles';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 
-const HeaderContainer = ({isSticky, currentSection, currentScreenWidth}) => {
+const HeaderContainer = ({isSticky, currentSection, currentScreenWidth, handleActiveSection}) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const handleDrawerOpen = () => {
@@ -22,6 +22,7 @@ const HeaderContainer = ({isSticky, currentSection, currentScreenWidth}) => {
         currentScreenWidth={currentScreenWidth}
         classes={classes}
         currentSection={currentSection}
+        handleActiveSection={handleActiveSection}
         handleDrawerOpen={handleDrawerOpen}
         handleDrawerClose={handleDrawerClose}
     />;

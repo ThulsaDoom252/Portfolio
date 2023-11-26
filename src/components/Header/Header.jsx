@@ -15,7 +15,8 @@ const Header = ({
                     isSticky,
                     isDrawerOpen,
                     handleDrawerOpen,
-                    handleDrawerClose
+                    handleDrawerClose,
+                    handleActiveSection,
                 }) => {
 
     const widthToShowDrawer = 894
@@ -27,7 +28,7 @@ const Header = ({
                 justifyContent='space-between'
                 alignItems='center'>
                 <Logo/>
-                <Navbar currentSection={currentSection}/>
+                <Navbar currentSection={currentSection} handleActiveSection={handleActiveSection}/>
             </Box>
             <Contacts classes={classes} currentScreenWidth={currentScreenWidth} showButton={false}/>
             {currentScreenWidth <= widthToShowDrawer &&
@@ -43,7 +44,10 @@ const Header = ({
                                 sx={{zIndex: 9}}
                                 variant='temporary'
                                 onClose={handleDrawerClose}>
-                            <BurgerMenu onClick={handleDrawerClose} currentSection={currentSection}/>
+                            <BurgerMenu onClick={handleDrawerClose}
+                                        currentSection={currentSection}
+                                        handleActiveSection={handleActiveSection}
+                            />
                         </Drawer>
                     </div>
                 </>}

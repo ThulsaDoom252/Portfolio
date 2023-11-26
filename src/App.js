@@ -42,7 +42,7 @@ function App() {
             const projectsSection = document.getElementById('projects');
             const landingsSection = document.getElementById('landings');
 
-            const offsetModifier = 7
+            const offsetModifier = 100
 
             const sectionsPos = [homeSection.offsetTop, aboutSection.offsetTop, projectsSection.offsetTop, landingsSection.offsetTop]
 
@@ -68,13 +68,15 @@ function App() {
         };
     }, []);
 
-    function handleActiveSection(section) {
+    function handleActiveSection(section, event) {
+        event && event.preventDefault()
         const targetElement = document.getElementById(section);
+        console.log(targetElement.offsetTop)
         if (targetElement) {
             const offset = 100;
             window.scrollTo({
                 top: targetElement.offsetTop - offset,
-                behavior: 'instant'
+                behavior: 'smooth'
             });
         }
     }
@@ -82,6 +84,7 @@ function App() {
     return (
         <>
             <HeaderContainer currentSection={currentSection} isSticky={isSticky}
+                             handleActiveSection={handleActiveSection}
                              currentScreenWidth={currentScreenWidth}/>
             <Home/>
             <main>
