@@ -1,7 +1,8 @@
 import React from 'react';
+import {about, home, landings, projects} from '../../common';
 
 const Navbar = ({currentSection, handleActiveSection}) => {
-    const navItems = ['home', 'about', 'projects', 'landings']
+    const navItems = [home, about, projects, landings]
 
     return (
         <ul className='flex justify-between navbar'>

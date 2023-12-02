@@ -9,7 +9,7 @@ import {useEffect, useState} from 'react';
 import LandingsContainer from './components/Landings/LandingsContainer';
 import FooterContainer from './components/Footer/FooterContainer';
 import ContactForm from './components/ContactForm/ContactForm';
-import {about, home, landings, projects} from './sections';
+import {about, home, landings, projects} from './common';
 
 function App() {
     const [currentSection, setCurrentSection] = useState(home)

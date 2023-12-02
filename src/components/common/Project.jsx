@@ -51,11 +51,11 @@ const Project = ({
                     </GridItem>
                     <GridItem padding='none' xs={6} md={4}>
                         <p className='project-details__subtitle'>Github</p>
-                        <a target='_blank' href={gitLink}>View source code</a>
+                        <a className='project-details__link' target='_blank' href={gitLink}>View source code</a>
                     </GridItem>
                     <GridItem padding='none' xs={6} md={4}>
                         <p className='project-details__subtitle'>Deployed</p>
-                        <a target={'_blank'} href={deployLink}>View</a>
+                        <a className='project-details__link' target={'_blank'} href={deployLink}>View</a>
                     </GridItem>
                 </Grid>
                 <Contacts showButton={false} iconSize={30}/>
