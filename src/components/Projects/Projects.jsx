@@ -21,7 +21,7 @@ const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenW
                         <Box className='row'>
                             <Grid container display='flex' alignItems='center' justifyContent='left'>
                                 {projectItems.map((item, index) => (
-                                    <GridItem index={index}>
+                                    <GridItem index={index} key={index}>
                                         <ProjectItem thumbnail={item.itemThumbnailClass}
                                                      onClick={() => handleProjectDetails(item.title)}
                                                      title={item.title}

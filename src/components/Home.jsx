@@ -7,7 +7,6 @@ const Home = () => {
     const [textIndex, setTextIndex] = useState(0)
     const [slideAnimation, toggleSlideAnimation] = useState(false)
     const texts = ['React developer', 'Ui/ux designer']
-
     const handleAnimationSlide = async () => {
         toggleSlideAnimation(true)
         await delay(700)

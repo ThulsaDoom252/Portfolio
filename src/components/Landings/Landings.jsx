@@ -6,7 +6,6 @@ import {landingItems} from './content';
 import Project from '../common/Project';
 import {Waypoint} from 'react-waypoint';
 import Section from '../common/Section';
-
 const Landings = ({isLandingDetailsVisible, handleLandingDetails, currentScreenWidth}) => {
     return (
         <Section
@@ -21,7 +20,7 @@ const Landings = ({isLandingDetailsVisible, handleLandingDetails, currentScreenW
                     <Box className='row'>
                         <Grid container>
                             {landingItems.map((item, index) => (
-                                <GridItem lg={6} md={6} index={index}>
+                                <GridItem lg={6} md={6} index={index} key={index}>
                                     <ProjectItem title={item.title}
                                                  onClick={() => handleLandingDetails(item.title)}
                                                  description={item.subTitle}

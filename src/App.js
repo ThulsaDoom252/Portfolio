@@ -9,9 +9,11 @@ import {useEffect, useState} from 'react';
 import LandingsContainer from './components/Landings/LandingsContainer';
 import FooterContainer from './components/Footer/FooterContainer';
 import ContactForm from './components/ContactForm/ContactForm';
+import {about, home, landings, projects} from './sections';
 
 function App() {
-    const [currentSection, setCurrentSection] = useState(null)
+    const [currentSection, setCurrentSection] = useState(home)
+    const [currentlyClickedNavItem, setCurrentlyClickedNavItem] = useState(null)
     const [isSticky, setIsSticky] = useState(false)
 
     const {width: currentScreenWidth} = useWindowDimensions()
@@ -26,16 +28,9 @@ function App() {
         };
     }, []);
 
-    //Initially setting home as active navItem
-    useEffect(() => {
-        setCurrentSection('home')
-    }, [])
-
-
-    // Handling active navItem on scroll
+    //Handling active navItem on scroll
     useEffect(() => {
         const handleScrollAnchor = () => {
-
             const scrollPosition = window.scrollY;
             const homeSection = document.getElementById('home')
             const aboutSection = document.getElementById('about')
@@ -46,19 +41,19 @@ function App() {
 
             const sectionsPos = [homeSection.offsetTop, aboutSection.offsetTop, projectsSection.offsetTop, landingsSection.offsetTop]
 
-            const modifiedSectionsPost = sectionsPos.map(section => section !== homeSection.offsetTop && section - offsetModifier)
+            const modifiedSectionsPos = sectionsPos.map(section => section !== homeSection.offsetTop && section - offsetModifier)
 
-            if (scrollPosition >= modifiedSectionsPost[0] && scrollPosition < modifiedSectionsPost[1]) {
-                setCurrentSection('home')
-            } else if (scrollPosition >= modifiedSectionsPost[1] && scrollPosition < modifiedSectionsPost[2]) {
-                setCurrentSection('about')
+            if (scrollPosition >= modifiedSectionsPos[0] && scrollPosition < modifiedSectionsPos[1]) {
+                handleScrolledSection(home)
+            } else if (scrollPosition >= modifiedSectionsPos[1] && scrollPosition < modifiedSectionsPos[2]) {
+                handleScrolledSection(about)
             } else if (
-                scrollPosition >= modifiedSectionsPost[2] &&
-                scrollPosition < modifiedSectionsPost[3]
+                scrollPosition >= modifiedSectionsPos[2] &&
+                scrollPosition < modifiedSectionsPos[3]
             ) {
-                setCurrentSection('projects');
-            } else if (scrollPosition >= modifiedSectionsPost[3]) {
-                setCurrentSection('landings');
+                handleScrolledSection(projects)
+            } else if (scrollPosition >= modifiedSectionsPos[3]) {
+                handleScrolledSection(landings)
             }
         };
         window.addEventListener('scroll', handleScrollAnchor);
@@ -66,13 +61,22 @@ function App() {
         return () => {
             window.removeEventListener('scroll', handleScrollAnchor);
         };
-    }, []);
+    }, [currentSection, currentlyClickedNavItem]);
+
+    function handleScrolledSection(section) {
+        if (!currentlyClickedNavItem && section !== currentSection) {
+            setCurrentSection(section)
+        } else if (section === currentlyClickedNavItem) {
+            setCurrentlyClickedNavItem(null)
+        }
+    }
 
     function handleActiveSection(section, event) {
         event && event.preventDefault()
+        setCurrentlyClickedNavItem(section)
         const targetElement = document.getElementById(section);
-        console.log(targetElement.offsetTop)
         if (targetElement) {
+            setCurrentSection(section)
             const offset = 100;
             window.scrollTo({
                 top: targetElement.offsetTop - offset,
