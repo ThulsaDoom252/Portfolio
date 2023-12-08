@@ -1,15 +1,13 @@
 import React from 'react';
 import {Box} from '@mui/material';
-import aboutPhoto from '../../assets/photo01.png'
+import aboutPhoto from '../../assets/photo01.jpg'
 import AboutMenu from './About-menu';
 import Skills from './Skills';
 import Experience from './Experience';
 import {skills} from '../../common';
 import Section from '../common/Section';
 
-
 const About = ({aboutActiveBlock, setAboutActiveBlock}) => {
-
     return (
         <Section id='about' className='about portfolio-section'>
             <Box className='container'>
