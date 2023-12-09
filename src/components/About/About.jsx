@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box} from '@mui/material';
-import aboutPhoto from '../../assets/photo01.jpg'
+import aboutPhoto from '../../assets/about.webp'
 import AboutMenu from './About-menu';
 import Skills from './Skills';
 import Experience from './Experience';

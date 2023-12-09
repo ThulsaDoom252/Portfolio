@@ -6,7 +6,6 @@ export const about = 'about'
 export const projects = 'projects'
 export const landings = 'landings'
 
-
 //About section types
 export const skills = 'Skills'
 export const experience = 'Experience'

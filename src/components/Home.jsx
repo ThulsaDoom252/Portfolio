@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {delay} from '../common';
 import {Box} from '@mui/material';
 import Section from './common/Section';
-
 const Home = () => {
     const [textIndex, setTextIndex] = useState(0)
     const [slideAnimation, toggleSlideAnimation] = useState(false)
@@ -36,5 +35,4 @@ const Home = () => {
         </Section>
     );
 };
-
 export default Home;

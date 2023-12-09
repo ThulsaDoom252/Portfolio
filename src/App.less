@@ -10,7 +10,7 @@ header {
   color: @primary;
   padding: 2rem !important;
   background: @secondary-bg;
-  z-index: 10;
+  z-index: 11;
   transition: all .28s ease-in-out;
 
   &.sticky-header {
@@ -37,6 +37,10 @@ header {
       padding: 1.2rem;
       transition: 0.8s ease;
       position: relative;
+
+      &:hover {
+        color: @primary-active;
+      }
 
       &:after {
         content: "";
@@ -83,10 +87,10 @@ header {
 //__________________________Greet section
 //toDo optimize background code
 .greet {
-  background-image: url(./assets/bg.png);
-  background-position: 100%;
+  background-image: url(./assets/bg.webp);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 100%;
   height: 48.5rem;
   color: @primary;
   padding-top: 16rem;
@@ -251,15 +255,15 @@ header {
   }
 
   .project__thumbnail-firedrive {
-    background-image: url("./assets/firedrive/fd_thumbnail.png");
+    background-image: url("./assets/apps/firedrive/fd_thumbnail.webp");
   }
 
   .project__thumbnail-network {
-    background-image: url("./assets/social-network/sn_thumbnail.png");
+    background-image: url("./assets/apps/social-network/sn_thumbnail.webp");
   }
 
   .project__thumbnail-chatlink {
-    background-image: url("./assets/chatlink/chat_thumbnail.jpg");
+    background-image: url("./assets/apps/chatlink/chat_thumbnail.webp");
   }
 
   .project__content {
@@ -341,11 +345,11 @@ header {
 }
 
 .thumbnail-barber {
-  background-image: url("./assets/barber/br_thumbnail.png");
+  background-image: url("./assets/landings/barber/br_thumbnail.webp");
 }
 
 .thumbnail-burning-man {
-  background-image: url("./assets/burningman/bm-thumbnail.png");
+  background-image: url("./assets/landings/burningman/bm_thumbnail.webp");
 }
 
 //----------------------Contact Form

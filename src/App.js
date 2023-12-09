@@ -1,6 +1,7 @@
 import './App.less';
 import 'reset-css';
 import HeaderContainer from './components/Header/HeaderContainer';
+import {Scrollbars} from 'react-custom-scrollbars';
 import Home from './components/Home';
 import AboutContainer from './components/About/AboutContainer';
 import useWindowDimensions from './hooks/useWindowDimensions';
@@ -36,11 +37,8 @@ function App() {
             const aboutSection = document.getElementById('about')
             const projectsSection = document.getElementById('projects');
             const landingsSection = document.getElementById('landings');
-
             const offsetModifier = 100
-
             const sectionsPos = [homeSection.offsetTop, aboutSection.offsetTop, projectsSection.offsetTop, landingsSection.offsetTop]
-
             const modifiedSectionsPos = sectionsPos.map(section => section !== homeSection.offsetTop && section - offsetModifier)
 
             if (scrollPosition >= modifiedSectionsPos[0] && scrollPosition < modifiedSectionsPos[1]) {
@@ -71,11 +69,11 @@ function App() {
         }
     }
 
-    function handleActiveSection(section, event) {
+    function handleActiveSection(section, event, isDetailMode) {
         event && event.preventDefault()
-        setCurrentlyClickedNavItem(section)
+        !isDetailMode && setCurrentlyClickedNavItem(section)
         const targetElement = document.getElementById(section);
-        if (targetElement) {
+        if (currentSection !== section) {
             setCurrentSection(section)
             const offset = 100;
             window.scrollTo({
@@ -87,14 +85,18 @@ function App() {
 
     return (
         <>
-            <HeaderContainer currentSection={currentSection} isSticky={isSticky}
+            <HeaderContainer currentSection={currentSection}
+                             isSticky={isSticky}
                              handleActiveSection={handleActiveSection}
                              currentScreenWidth={currentScreenWidth}/>
             <Home/>
+
             <main>
                 <AboutContainer/>
-                <ProjectsContainer handleActiveSection={handleActiveSection} currentScreenWidth={currentScreenWidth}/>
-                <LandingsContainer currentScreenWidth={currentScreenWidth} handleActiveSection={handleActiveSection}/>
+                <ProjectsContainer handleActiveSection={handleActiveSection}
+                                   currentScreenWidth={currentScreenWidth}/>
+                <LandingsContainer currentScreenWidth={currentScreenWidth}
+                                   handleActiveSection={handleActiveSection}/>
                 {/*<ContactForm/>*/}
             </main>
             <FooterContainer currentScreenWidth={currentScreenWidth}/>
