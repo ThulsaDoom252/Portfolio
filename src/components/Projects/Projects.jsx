@@ -29,24 +29,24 @@ const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenW
                                                          description={item.subTitle}/>
                                         </GridItem>
                                     </React.Fragment>
-                                 ))}
+                                ))}
                             </Grid>
                         </Box>
                     </> : <>{projectItems.map((item, index) =>
-                        <Project
-                            currentScreenWidth={currentScreenWidth}
-                            key={index}
-                            onClick={() => handleProjectDetails('projects')}
-                            title={item.title} subtitle={item.subTitle}
-                            branch={item.branch}
-                            type={item.type}
-                            description={item.description}
-                            deployLink={item.deployLink}
-                            gitLink={item.gitLink}
-                            titleImage={item.titleImage}
-                            image01={item.image01}
-                            image02={item.image02}
-                        />)}</>}
+                        <React.Fragment key={index}>
+                            <Project
+                                currentScreenWidth={currentScreenWidth}
+                                onClick={() => handleProjectDetails('projects')}
+                                title={item.title} subtitle={item.subTitle}
+                                branch={item.branch}
+                                type={item.type}
+                                description={item.description}
+                                deployLink={item.deployLink}
+                                gitLink={item.gitLink}
+                                titleImage={item.titleImage}
+                                image01={item.image01}
+                                image02={item.image02}
+                            /></React.Fragment>)}</>}
             </Box>
         </Section>
 

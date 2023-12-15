@@ -8,6 +8,11 @@ import networkImage02 from "../../assets/apps/social-network/sn_users.webp"
 
 import chatTitle from "../../assets/apps/chatlink/chat_01.webp"
 import chatImage01 from "../../assets/apps/chatlink/chat_02.webp"
+
+import portfolioTitle from "../../assets/apps/portfolio/pr_01.webp"
+import portfolioImage01 from "../../assets/apps/portfolio/pr_02.webp"
+import portfolioImage02 from "../../assets/apps/portfolio/pr_03.webp"
+
 export const projectItems = [
     {
         title: 'firedrive',
@@ -48,4 +53,17 @@ export const projectItems = [
         gitLink: 'https://github.com/ThulsaDoom252/ChatLink',
         deployLink: 'https://chat-link-eight.vercel.app/',
     },
+    {
+        title: 'portfolio',
+        branch: 'Website',
+        type: 'Web-app',
+        subTitle: 'Glimpse into my creations',
+        description: 'Discover more about my professional background and skills , view my latest projects. Whether you\'re a potential collaborator, employer, or fellow enthusiast, this space is designed to give you a glimpse into what drives me and the skills I bring to the table.',
+        itemThumbnailClass: 'project__thumbnail-portfolio',
+        titleImage: portfolioTitle,
+        image01: portfolioImage01,
+        image02: portfolioImage02,
+        gitLink: 'https://github.com/ThulsaDoom252/Portfolio',
+        deployLink: null,
+    }
 ]

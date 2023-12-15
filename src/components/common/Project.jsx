@@ -6,6 +6,7 @@ import {useStyles} from '../../muiStyles';
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 const Project = ({
                      title,
                      gitLink,
@@ -56,10 +57,10 @@ const Project = ({
                         <p className='project-details__subtitle'>Github</p>
                         <a className='project-details__link' target='_blank' href={gitLink}>View source code</a>
                     </GridItem>
-                    <GridItem padding='none' xs={6} md={4}>
+                    {deployLink && <GridItem padding='none' xs={6} md={4}>
                         <p className='project-details__subtitle'>Deployed</p>
                         <a className='project-details__link' target={'_blank'} href={deployLink}>View</a>
-                    </GridItem>
+                    </GridItem>}
                 </Grid>
                 <Contacts showButton={false} iconSize={30}/>
                 <Box className='project-details__image'>
