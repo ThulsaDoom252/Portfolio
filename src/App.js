@@ -10,7 +10,9 @@ import {useEffect, useState} from 'react';
 import LandingsContainer from './components/Landings/LandingsContainer';
 import FooterContainer from './components/Footer/FooterContainer';
 import ContactForm from './components/ContactForm/ContactForm';
-import {about, home, landings, projects} from './common';
+import {about, contacts, home, landings, projects} from './common';
+import ContactFormContainer from './components/ContactForm/ContactFormContainer';
+
 
 function App() {
     const [currentSection, setCurrentSection] = useState(home)
@@ -37,8 +39,9 @@ function App() {
             const aboutSection = document.getElementById('about')
             const projectsSection = document.getElementById('projects');
             const landingsSection = document.getElementById('landings');
+            const contactsSection = document.getElementById(('contacts'))
             const offsetModifier = 100
-            const sectionsPos = [homeSection.offsetTop, aboutSection.offsetTop, projectsSection.offsetTop, landingsSection.offsetTop]
+            const sectionsPos = [homeSection.offsetTop, aboutSection.offsetTop, projectsSection.offsetTop, landingsSection.offsetTop, contactsSection.offsetTop]
             const modifiedSectionsPos = sectionsPos.map(section => section !== homeSection.offsetTop && section - offsetModifier)
 
             if (scrollPosition >= modifiedSectionsPos[0] && scrollPosition < modifiedSectionsPos[1]) {
@@ -50,8 +53,10 @@ function App() {
                 scrollPosition < modifiedSectionsPos[3]
             ) {
                 handleScrolledSection(projects)
-            } else if (scrollPosition >= modifiedSectionsPos[3]) {
+            } else if (scrollPosition >= modifiedSectionsPos[3] && scrollPosition < modifiedSectionsPos[4]) {
                 handleScrolledSection(landings)
+            } else if (scrollPosition >= modifiedSectionsPos[4]) {
+                handleScrolledSection(contacts)
             }
         };
         window.addEventListener('scroll', handleScrollAnchor);
@@ -97,7 +102,7 @@ function App() {
                                    currentScreenWidth={currentScreenWidth}/>
                 <LandingsContainer currentScreenWidth={currentScreenWidth}
                                    handleActiveSection={handleActiveSection}/>
-                {/*<ContactForm/>*/}
+                <ContactFormContainer/>
             </main>
             <FooterContainer currentScreenWidth={currentScreenWidth}/>
         </>

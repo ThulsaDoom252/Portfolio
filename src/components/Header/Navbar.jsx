@@ -1,7 +1,7 @@
 import React from 'react';
-import {about, home, landings, projects} from '../../common';
+import {navItems} from '../../common';
+
 const Navbar = ({currentSection, handleActiveSection}) => {
-    const navItems = [home, about, projects, landings]
     return (
         <ul className='flex justify-between navbar'>
             {navItems.map((item, index) => {

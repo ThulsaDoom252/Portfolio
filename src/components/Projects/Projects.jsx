@@ -21,28 +21,32 @@ const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenW
                         <Box className='row'>
                             <Grid container display='flex' alignItems='center' justifyContent='left'>
                                 {projectItems.map((item, index) => (
-                                    <GridItem index={index} key={index}>
-                                        <ProjectItem thumbnail={item.itemThumbnailClass}
-                                                     onClick={() => handleProjectDetails(item.title)}
-                                                     title={item.title}
-                                                     description={item.subTitle}/>
-                                    </GridItem>))}
+                                    <React.Fragment key={index}>
+                                        <GridItem>
+                                            <ProjectItem thumbnail={item.itemThumbnailClass}
+                                                         onClick={() => handleProjectDetails(item.title)}
+                                                         title={item.title}
+                                                         description={item.subTitle}/>
+                                        </GridItem>
+                                    </React.Fragment>
+                                 ))}
                             </Grid>
                         </Box>
-                    </> : <>{projectItems.map((item, index) => <Project
-                        currentScreenWidth={currentScreenWidth}
-                        key={index}
-                        onClick={() => handleProjectDetails('projects')}
-                        title={item.title} subtitle={item.subTitle}
-                        branch={item.branch}
-                        type={item.type}
-                        description={item.description}
-                        deployLink={item.deployLink}
-                        gitLink={item.gitLink}
-                        titleImage={item.titleImage}
-                        image01={item.image01}
-                        image02={item.image02}
-                    />)}</>}
+                    </> : <>{projectItems.map((item, index) =>
+                        <Project
+                            currentScreenWidth={currentScreenWidth}
+                            key={index}
+                            onClick={() => handleProjectDetails('projects')}
+                            title={item.title} subtitle={item.subTitle}
+                            branch={item.branch}
+                            type={item.type}
+                            description={item.description}
+                            deployLink={item.deployLink}
+                            gitLink={item.gitLink}
+                            titleImage={item.titleImage}
+                            image01={item.image01}
+                            image02={item.image02}
+                        />)}</>}
             </Box>
         </Section>
 

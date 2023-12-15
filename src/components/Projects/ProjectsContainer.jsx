@@ -8,7 +8,6 @@ const ProjectsContainer = ({currentScreenWidth, handleActiveSection}) => {
     const handleProjectDetails = async (section) => {
         toggleProjectDetails(!isProjectDetailsVisible)
         await delay(100)
-        debugger
         handleActiveSection(section, null, true)
     }
 

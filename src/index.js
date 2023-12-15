@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {theme} from './muiStyles';
 import {ThemeProvider} from '@mui/material';
+import {SnackbarProvider} from 'notistack';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-      <ThemeProvider theme={theme}>
-    <App />
-      </ThemeProvider>
+    <ThemeProvider theme={theme}>
+        <SnackbarProvider>
+            <App/>
+        </SnackbarProvider>
+    </ThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

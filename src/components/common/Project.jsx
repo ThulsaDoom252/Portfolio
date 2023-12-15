@@ -3,7 +3,9 @@ import {Box, Button, Divider, Grid} from '@mui/material';
 import Contacts from './Contacts/Contacts';
 import GridItem from './GridItem';
 import {useStyles} from '../../muiStyles';
-
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const Project = ({
                      title,
                      gitLink,
@@ -14,7 +16,6 @@ const Project = ({
                      titleImage,
                      image01,
                      image02,
-                     key,
                      type,
                      branch,
                      currentScreenWidth,
@@ -28,8 +29,10 @@ const Project = ({
         width: currentScreenWidth <= 510 ? '200px' : '300px',
     }
 
+    const images = [titleImage, image01, image02].filter(Boolean)
+
     return (
-        <Box key={key} id={title} className='project-details__block'>
+        <Box id={title} className='project-details__block'>
             <Box display='flex' justifyContent='space-between' alignItems='center'>
                 <h1 className='project-details__title title capitalize'>{title}</h1>
                 <Button className={classes.customButton}
@@ -59,16 +62,23 @@ const Project = ({
                     </GridItem>
                 </Grid>
                 <Contacts showButton={false} iconSize={30}/>
-                <Box className='project-details__thumbnail'>
+                <Box className='project-details__image'>
                     <img src={titleImage} alt="title-img"/>
                 </Box>
-                <Box className='project-details__thumbnail'>
-                    <img src={image01} alt="title-img"/>
+                <Box marginTop={10}>
+                    <Slider
+                        dots
+                        infinite
+                        slidesToShow={images.length}
+                        centerMode
+                        slide
+                        cssEase="linear"
+                    >
+                        {images.map((image, index) =>
+                            <img key={index} className='project-details__thumbnail' src={image} alt={'project-image'}/>
+                        )}
+                    </Slider>
                 </Box>
-                {image02 &&
-                    <Box className='project-details__thumbnail'>
-                        <img src={image02} alt="title-img"/>
-                    </Box>}
             </Box>
         </Box>
     );

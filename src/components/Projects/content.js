@@ -8,7 +8,6 @@ import networkImage02 from "../../assets/apps/social-network/sn_users.webp"
 
 import chatTitle from "../../assets/apps/chatlink/chat_01.webp"
 import chatImage01 from "../../assets/apps/chatlink/chat_02.webp"
-
 export const projectItems = [
     {
         title: 'firedrive',

@@ -6,6 +6,8 @@ export const primaryColor = '#fff6f6'
 export const activeColor = '#f9004d'
 export const btnBorderColor = '#575151'
 
+export const disabledBtnColor = '#8d8d8d'
+
 const prtojectBtnColor = '#212020'
 
 // mui custom theme

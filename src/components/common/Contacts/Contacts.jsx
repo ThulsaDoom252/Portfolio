@@ -3,7 +3,7 @@ import {Box, Button} from '@mui/material';
 import {BiLogoFacebook} from 'react-icons/bi';
 import {CiInstagram} from 'react-icons/ci';
 import {SlSocialTwitter} from 'react-icons/sl';
-import {facebook, instagram, twitter} from './contactsData';
+import {contactData} from '../../../config';
 
 const Contacts = ({
                       classes,
@@ -13,17 +13,18 @@ const Contacts = ({
                   }) => {
 
     const contactsIcons = [
-        {icon: <BiLogoFacebook size={iconSize}/>, site: facebook},
-        {icon: <CiInstagram size={iconSize}/>, site: instagram},
-        {icon: <SlSocialTwitter size={iconSize}/>, site: twitter},
+        {icon: <BiLogoFacebook size={iconSize}/>, site: contactData.facebook},
+        {icon: <CiInstagram size={iconSize}/>, site: contactData.instagram},
+        {icon: <SlSocialTwitter size={iconSize}/>, site: contactData.twitter},
 
     ]
 
     return <Box className='contacts-block' display='flex' justifyContent='space-between' alignItems='center'>
         <ul className='contacts-block__list'>
             {contactsIcons.map((contact, index) => <li className='contacts-block__list-item' key={index}><a
-                onClick={() => !contact.site && alert('Sorry, has no account here :D')}
-                target={contact.site && '_blank'} href={contact.site}>{contact.icon}</a>
+                onClick={() => contact.site === 'null' && alert('Sorry, has no account here :D')}
+                target={contact.site && '_blank'}
+                href={contact.site !== 'null' ? contact.site : void 0}>{contact.icon}</a>
             </li>)}
         </ul>
         {showButton &&
