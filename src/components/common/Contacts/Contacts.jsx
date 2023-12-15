@@ -16,7 +16,6 @@ const Contacts = ({
         {icon: <BiLogoFacebook size={iconSize}/>, site: contactData.facebook},
         {icon: <CiInstagram size={iconSize}/>, site: contactData.instagram},
         {icon: <SlSocialTwitter size={iconSize}/>, site: contactData.twitter},
-
     ]
 
     return <Box className='contacts-block' display='flex' justifyContent='space-between' alignItems='center'>
