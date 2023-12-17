@@ -57,11 +57,11 @@ const ContactFormContainer = () => {
             const isEmailSend = await sendEmail(e)
             await delay(2000)
             isEmailSend ? snackbar('Message sent!') : snackbar(emailErrStr, {variant: 'error'})
-            disableBtn(false)
         } catch (e) {
-            console.log('Submit form error:', e)
+            console.error('Submit form error:', e)
             snackbar(emailErrStr, {variant: 'error'})
         }
+        disableBtn(false)
     }
 
     return <ContactForm {...{
