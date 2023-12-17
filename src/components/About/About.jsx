@@ -2,10 +2,11 @@ import React from 'react';
 import {Box} from '@mui/material';
 import aboutPhoto from '../../assets/about.webp'
 import AboutMenu from './About-menu';
-import Skills from './Skills';
 import Experience from './Experience';
-import {skills} from '../../common';
+import {experience, skills} from '../../common';
 import Section from '../common/Section';
+import CvButton from '../common/CvButton';
+import SkillsModule from './SkillsModule';
 
 const About = ({aboutActiveBlock, setAboutActiveBlock}) => {
     return (
@@ -24,7 +25,8 @@ const About = ({aboutActiveBlock, setAboutActiveBlock}) => {
                             </div>
                             <div className='about__bottom'>
                                 <AboutMenu {...{aboutActiveBlock, setAboutActiveBlock}}/>
-                                {aboutActiveBlock === skills ? <Skills/> : <Experience/>}
+                                {aboutActiveBlock === skills ? <SkillsModule/> :
+                                    <Experience/>}
                             </div>
                         </div>
                     </div>

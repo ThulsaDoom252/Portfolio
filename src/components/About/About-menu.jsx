@@ -1,10 +1,7 @@
 import React from 'react';
 import {experience, skills} from '../../common';
-
 const AboutMenu = ({aboutActiveBlock, setAboutActiveBlock}) => {
-
     const aboutBlocks = [skills, experience]
-
     return (
         <ul className='about__navbar'>
             {aboutBlocks.map((item, index) =>
@@ -16,5 +13,4 @@ const AboutMenu = ({aboutActiveBlock, setAboutActiveBlock}) => {
         </ul>
     );
 };
-
 export default AboutMenu;

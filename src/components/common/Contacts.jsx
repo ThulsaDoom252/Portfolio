@@ -1,9 +1,10 @@
 import React from 'react';
 import {Box, Button} from '@mui/material';
-import {BiLogoFacebook} from 'react-icons/bi';
+import {BiLogoFacebook, BiLogoGithub} from 'react-icons/bi';
 import {CiInstagram} from 'react-icons/ci';
 import {SlSocialTwitter} from 'react-icons/sl';
-import {contactData} from '../../config';
+import {userData} from '../../config';
+import CvButton from './CvButton';
 
 const Contacts = ({
                       classes,
@@ -13,9 +14,9 @@ const Contacts = ({
                   }) => {
 
     const contactsIcons = [
-        {icon: <BiLogoFacebook size={iconSize}/>, site: contactData.facebook},
-        {icon: <CiInstagram size={iconSize}/>, site: contactData.instagram},
-        {icon: <SlSocialTwitter size={iconSize}/>, site: contactData.twitter},
+        {icon: <BiLogoFacebook size={iconSize}/>, site: userData.facebook},
+        {icon: <CiInstagram size={iconSize}/>, site: userData.instagram},
+        {icon: <BiLogoGithub size={iconSize}/>, site: userData.github},
     ]
 
     return <Box className='contacts-block' display='flex' justifyContent='space-between' alignItems='center'>
@@ -26,10 +27,7 @@ const Contacts = ({
                 href={contact.site !== 'null' ? contact.site : void 0}>{contact.icon}</a>
             </li>)}
         </ul>
-        {showButton &&
-            <Button className={classes.customButton} sx={{display: currentScreenWidth <= 654 ? 'none' : 'block'}}
-                    variant='outlined'>Contact
-                me</Button>}
+        {showButton && <CvButton/>}
     </Box>
 };
 

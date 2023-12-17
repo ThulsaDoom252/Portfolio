@@ -58,7 +58,7 @@ export const projectItems = [
         branch: 'Website',
         type: 'Web-app',
         subTitle: 'Glimpse into my creations',
-        description: 'Discover more about my professional background and skills , view my latest projects. Whether you\'re a potential collaborator, employer, or fellow enthusiast, this space is designed to give you a glimpse into what drives me and the skills I bring to the table.',
+        description: 'Discover more about my professional background and data , view my latest projects. Whether you\'re a potential collaborator, employer, or fellow enthusiast, this space is designed to give you a glimpse into what drives me and the data I bring to the table.',
         itemThumbnailClass: 'project__thumbnail-portfolio',
         titleImage: portfolioTitle,
         image01: portfolioImage01,

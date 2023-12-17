@@ -228,6 +228,11 @@ header {
       .about__skills-title {
         color: @primary;
       }
+
+      .about__cv-block {
+        display: flex;
+        font-size: 1.5rem;
+      }
     }
   }
 }
@@ -337,9 +342,29 @@ header {
   }
 
   .project-details__image {
+    position: relative;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
+
+  .project-details__item {
+    cursor: pointer;
+
+    &.item-active {
+      transition: all 0.3s ease-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid 3px @primary-active;
+      border-radius: 5px;
+    }
+
+    .project-details__thumbnail {
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+    }
+  }
+
 
 }
 
@@ -476,6 +501,24 @@ header {
       }
     }
   }
+}
+
+//...............Carousel arrows
+.carousel-arrow {
+  position: absolute;
+  z-index: 1;
+  scale: 2;
+  bottom: 50%;
+  transform: translateY(50%);
+  cursor: pointer;
+}
+
+.carousel-arrow__right {
+  right: 1rem;
+}
+
+.carousel-arrow__left {
+  left: 1rem;
 }
 
 //--------------------------Breakpoints

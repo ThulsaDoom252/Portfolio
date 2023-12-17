@@ -3,8 +3,10 @@ import {Box, Grid} from '@mui/material';
 import GridItem from '../common/GridItem';
 import ProjectItem from '../common/ProjectItem';
 import {landingItems} from './content';
-import Project from '../common/Project';
 import Section from '../common/Section';
+import ProjectContainer from '../common/Project/ProjectContainer';
+import {landings} from '../../common';
+
 const Landings = ({isLandingDetailsVisible, handleLandingDetails, currentScreenWidth}) => {
     return (
         <Section
@@ -30,19 +32,19 @@ const Landings = ({isLandingDetailsVisible, handleLandingDetails, currentScreenW
                     </Box>
                 </> : <>
                     {landingItems.map((item, index) => (
-                        <Project key={index}
-                                 currentScreenWidth={currentScreenWidth}
-                                 onClick={() => handleLandingDetails('landings')}
-                                 title={item.title}
-                                 branch={item.branch}
-                                 type={item.type}
-                                 gitLink={item.gitLink}
-                                 deployLink={item.deployLink}
-                                 subtitle={item.subTitle}
-                                 titleImage={item.titleImage}
-                                 image01={item.image01}
-                                 image02={item.image02}
-                                 description={item.description}
+                        <ProjectContainer key={index}
+                                          currentScreenWidth={currentScreenWidth}
+                                          onClick={() => handleLandingDetails(landings, true, 'instant')}
+                                          title={item.title}
+                                          branch={item.branch}
+                                          type={item.type}
+                                          gitLink={item.gitLink}
+                                          deployLink={item.deployLink}
+                                          subtitle={item.subTitle}
+                                          titleImage={item.titleImage}
+                                          image01={item.image01}
+                                          image02={item.image02}
+                                          description={item.description}
                         />
                     ))}
                 </>}

@@ -6,10 +6,10 @@ import {delay} from '../../common';
 const LandingsContainer = ({handleActiveSection, currentScreenWidth}) => {
     const [isLandingDetailsVisible, toggleLandingDetails] = useState(false)
 
-    const handleLandingDetails = async (section) => {
+    const handleLandingDetails = async (section, backToMainMode, instant) => {
         toggleLandingDetails(!isLandingDetailsVisible)
         await delay(100)
-        handleActiveSection(section, null, true)
+        handleActiveSection(section, null, !isLandingDetailsVisible, backToMainMode, instant)
     }
 
     return <Landings isLandingDetailsVisible={isLandingDetailsVisible} handleLandingDetails={handleLandingDetails}

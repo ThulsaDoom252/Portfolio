@@ -1,8 +1,8 @@
 import React from 'react';
 import {Box, Button, Divider, Grid} from '@mui/material';
-import Contacts from './Contacts';
-import GridItem from './GridItem';
-import {useStyles} from '../../muiStyles';
+import Contacts from '../Contacts';
+import GridItem from '../GridItem';
+import {useStyles} from '../../../muiStyles';
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,12 +14,14 @@ const Project = ({
                      deployLink,
                      subtitle,
                      description,
-                     titleImage,
-                     image01,
-                     image02,
                      type,
                      branch,
                      currentScreenWidth,
+                     slideIndex,
+                     images,
+                     handleSlideChange,
+                     sliderSettings,
+                     sliderRef,
                  }) => {
     const classes = useStyles()
 
@@ -29,8 +31,6 @@ const Project = ({
         fontSize: '0.8rem',
         width: currentScreenWidth <= 510 ? '200px' : '300px',
     }
-
-    const images = [titleImage, image01, image02].filter(Boolean)
 
     return (
         <Box id={title} className='project-details__block'>
@@ -64,21 +64,27 @@ const Project = ({
                 </Grid>
                 <Contacts showButton={false} iconSize={30}/>
                 <Box className='project-details__image'>
-                    <img src={titleImage} alt="title-img"/>
-                </Box>
-                <Box marginTop={10}>
-                    <Slider
-                        dots
-                        infinite
-                        slidesToShow={images.length}
-                        centerMode
-                        slide
-                        cssEase="linear"
-                    >
+                    <Slider arrows fade {...sliderSettings} ref={sliderRef}>
                         {images.map((image, index) =>
-                            <img key={index} className='project-details__thumbnail' src={image} alt={'project-image'}/>
+                            <img key={index} src={image} alt="image"/>
                         )}
                     </Slider>
+                </Box>
+                <Box marginTop={10}>
+                    <Grid container justifyContent={'center'}>
+                        {images.map((image, index) =>
+                            <React.Fragment key={index}>
+                                <GridItem adaptive>
+                                    <Box
+                                        className={`project-details__item ${index === slideIndex && 'item-active'}`}
+                                        onClick={() => handleSlideChange(index)}>
+                                        <img key={index} className='project-details__thumbnail' src={image}
+                                             alt={'project-image'}/>
+                                    </Box>
+                                </GridItem>
+                            </React.Fragment>
+                        )}
+                    </Grid>
                 </Box>
             </Box>
         </Box>

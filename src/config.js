@@ -4,10 +4,12 @@ export const config = {
     publicKey: process.env.REACT_APP_PUBLIC_KEY,
 };
 
-export const contactData = {
+export const userData = {
+    name: process.env.REACT_APP_USERNAME,
     email: process.env.REACT_APP_EMAIL,
     phone: process.env.REACT_APP_PHONE,
-    twitter: process.env.REACT_APP_TWITTER,
+    github: process.env.REACT_APP_GITHUB,
     instagram: process.env.REACT_APP_INSTAGRAM,
     facebook: process.env.REACT_APP_FACEBOOK,
+    cv: process.env.REACT_APP_CV_LINK,
 }

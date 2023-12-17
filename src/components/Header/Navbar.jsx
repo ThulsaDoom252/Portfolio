@@ -1,5 +1,6 @@
 import React from 'react';
 import {navItems} from '../../common';
+import CvButton from '../common/CvButton';
 
 const Navbar = ({currentSection, handleActiveSection}) => {
     return (

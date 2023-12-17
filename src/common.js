@@ -11,4 +11,3 @@ export const navItems = [home, about, projects, landings, contacts]
 //About section types
 export const skills = 'Skills'
 export const experience = 'Experience'
-

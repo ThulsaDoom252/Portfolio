@@ -2,13 +2,14 @@ import React from 'react';
 import {Box, Grid} from '@mui/material';
 import GridItem from '../common/GridItem';
 import ProjectItem from '../common/ProjectItem';
-import Project from '../common/Project';
 import {projectItems} from './content';
 import Section from '../common/Section';
+import ProjectContainer from '../common/Project/ProjectContainer';
+import {projects} from '../../common';
 
 const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenWidth}) => {
     return (
-        <Section id='projects'
+        <Section id={projects}
                  className={`projects portfolio-section ${isProjectDetailsVisible ? 'project-details' : 'projects-list'}`}>
             <Box className='projects-container'>
                 {!isProjectDetailsVisible ?
@@ -34,9 +35,9 @@ const Projects = ({isProjectDetailsVisible, handleProjectDetails, currentScreenW
                         </Box>
                     </> : <>{projectItems.map((item, index) =>
                         <React.Fragment key={index}>
-                            <Project
+                            <ProjectContainer
                                 currentScreenWidth={currentScreenWidth}
-                                onClick={() => handleProjectDetails('projects')}
+                                onClick={() => handleProjectDetails(projects, true, 'instant')}
                                 title={item.title} subtitle={item.subTitle}
                                 branch={item.branch}
                                 type={item.type}

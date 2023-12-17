@@ -39,7 +39,6 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
 
-
     projectButton: {
         width: 300,
         color: prtojectBtnColor,

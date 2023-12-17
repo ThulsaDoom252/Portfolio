@@ -7,6 +7,7 @@ import {CiMenuBurger} from 'react-icons/ci';
 import Drawer from '@mui/material/Drawer';
 import BurgerMenu from '../BurgerMenu';
 import {IoClose} from 'react-icons/io5';
+import CvButton from '../common/CvButton';
 
 const Header = ({
                     currentSection,
@@ -30,7 +31,8 @@ const Header = ({
                 <Logo/>
                 <Navbar currentSection={currentSection} handleActiveSection={handleActiveSection}/>
             </Box>
-            <Contacts classes={classes} currentScreenWidth={currentScreenWidth} showButton={false}/>
+            <Contacts classes={classes} currentScreenWidth={currentScreenWidth} showButton={currentScreenWidth >= 654}/>
+
             {currentScreenWidth <= widthToShowDrawer &&
                 <>
                     <button onClick={isDrawerOpen ? handleDrawerClose : handleDrawerOpen}
@@ -45,6 +47,7 @@ const Header = ({
                                 variant='temporary'
                                 onClose={handleDrawerClose}>
                             <BurgerMenu onClick={handleDrawerClose}
+                                        currentScreenWidth={currentScreenWidth}
                                         currentSection={currentSection}
                                         handleActiveSection={handleActiveSection}
                             />

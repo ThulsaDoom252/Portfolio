@@ -1,7 +1,6 @@
 import './App.less';
 import 'reset-css';
 import HeaderContainer from './components/Header/HeaderContainer';
-import {Scrollbars} from 'react-custom-scrollbars';
 import Home from './components/Home';
 import AboutContainer from './components/About/AboutContainer';
 import useWindowDimensions from './hooks/useWindowDimensions';
@@ -9,11 +8,8 @@ import ProjectsContainer from './components/Projects/ProjectsContainer';
 import {useEffect, useState} from 'react';
 import LandingsContainer from './components/Landings/LandingsContainer';
 import FooterContainer from './components/Footer/FooterContainer';
-import ContactForm from './components/ContactForm/ContactForm';
 import {about, contacts, home, landings, projects} from './common';
 import ContactFormContainer from './components/ContactForm/ContactFormContainer';
-
-
 function App() {
     const [currentSection, setCurrentSection] = useState(home)
     const [currentlyClickedNavItem, setCurrentlyClickedNavItem] = useState(null)
@@ -65,7 +61,6 @@ function App() {
             window.removeEventListener('scroll', handleScrollAnchor);
         };
     }, [currentSection, currentlyClickedNavItem]);
-
     function handleScrolledSection(section) {
         if (!currentlyClickedNavItem && section !== currentSection) {
             setCurrentSection(section)
@@ -73,17 +68,16 @@ function App() {
             setCurrentlyClickedNavItem(null)
         }
     }
-
-    function handleActiveSection(section, event, isDetailMode) {
+    function handleActiveSection(section, event, isDetailMode, backToMainMode, instant) {
         event && event.preventDefault()
         !isDetailMode && setCurrentlyClickedNavItem(section)
         const targetElement = document.getElementById(section);
-        if (currentSection !== section) {
+        if (currentSection !== section || backToMainMode) {
             setCurrentSection(section)
             const offset = 100;
             window.scrollTo({
                 top: targetElement.offsetTop - offset,
-                behavior: 'smooth'
+                behavior: instant || 'smooth'
             });
         }
     }

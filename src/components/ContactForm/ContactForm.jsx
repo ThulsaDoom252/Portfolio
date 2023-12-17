@@ -3,7 +3,7 @@ import {Box, Button} from '@mui/material';
 import {activeColor, disabledBtnColor, primaryColor} from '../../muiStyles';
 import Section from '../common/Section';
 import {contacts} from '../../common';
-import {contactData} from '../../config';
+import {userData} from '../../config';
 
 const ContactForm = ({
                          classes,
@@ -42,8 +42,8 @@ const ContactForm = ({
                 <Box className='container'>
                     <h1 className='title text-center'>Contact Me</h1>
                     <p className='description text-center'>I am available for hire.</p>
-                    <p className='description text-center'>Connect with me via phone: {contactData.phone} or
-                        email: {contactData.email}</p>
+                    <p className='description text-center'>Connect with me via phone: {userData.phone} or
+                        email: {userData.email}</p>
                     <p className='description text-center'>Note: All fields marked with * must be filled</p>
                     <form ref={formRef} className='contact-form' onSubmit={(e) => handleSubmit(e)}>
                         <Box marginTop={'30px'} position={'relative'}>

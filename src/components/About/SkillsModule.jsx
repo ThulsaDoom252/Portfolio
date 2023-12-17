@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Skills = () => {
-    const skills = [
+const SkillsModule = () => {
+    const skillsData = [
         {firstLabel: 'User experience design - Ui/Ux', secondLabel: 'Delight the user and make it work'},
         {firstLabel: 'Web and user interface design - development', secondLabel: 'Websites, web experiences'},
         {firstLabel: 'Front-end developer', secondLabel: 'Crafting perfection'},
@@ -13,7 +13,7 @@ const Skills = () => {
     ]
     return (
         <ul>
-            {skills.map((skill, index) => <li key={index} className='about__skills-item description'>
+            {skillsData.map((skill, index) => <li key={index} className='about__skills-item description'>
                 <p className='about__skills-title'>{skill.firstLabel}</p>
                 <p>{skill.secondLabel}</p>
             </li>)}
@@ -21,4 +21,4 @@ const Skills = () => {
     );
 };
 
-export default Skills;
+export default SkillsModule;
