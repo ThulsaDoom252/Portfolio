@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {useSnackbar} from 'notistack';
-import {defaultFormValues, emailFormat, emailValidator, requiredField, shortMessage} from './data';
+import {defaultFormValues, emailErrStr, emailFormat, emailValidator, requiredField, shortMessage} from './data';
 import emailjs from '@emailjs/browser';
 import {config} from '../../config';
 import {useStyles} from '../../muiStyles';
@@ -53,10 +53,15 @@ const ContactFormContainer = () => {
             return
         }
         disableBtn(true)
-        const isEmailSend = await sendEmail(e)
-        await delay(2000)
-        isEmailSend ? snackbar('Message sent!') : snackbar('Error sending email, see console for details', {variant: 'error'})
-        disableBtn(false)
+        try {
+            const isEmailSend = await sendEmail(e)
+            await delay(2000)
+            isEmailSend ? snackbar('Message sent!') : snackbar(emailErrStr, {variant: 'error'})
+            disableBtn(false)
+        } catch (e) {
+            console.log('Submit form error:', e)
+            snackbar(emailErrStr, {variant: 'error'})
+        }
     }
 
     return <ContactForm {...{
