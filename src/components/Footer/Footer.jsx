@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Typography} from '@mui/material';
 import Logo from '../Header/Logo';
-import Contacts from '../common/Contacts/Contacts';
+import Contacts from '../common/Contacts';
 import {useStyles} from '../../muiStyles';
 
 const Footer = ({currentScreenWidth}) => {

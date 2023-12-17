@@ -2,7 +2,7 @@ import React from 'react';
 import {Box} from '@mui/material';
 import Logo from './Logo';
 import Navbar from './Navbar';
-import Contacts from '../common/Contacts/Contacts';
+import Contacts from '../common/Contacts';
 import {CiMenuBurger} from 'react-icons/ci';
 import Drawer from '@mui/material/Drawer';
 import BurgerMenu from '../BurgerMenu';

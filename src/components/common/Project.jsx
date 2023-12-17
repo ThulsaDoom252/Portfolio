@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, Button, Divider, Grid} from '@mui/material';
-import Contacts from './Contacts/Contacts';
+import Contacts from './Contacts';
 import GridItem from './GridItem';
 import {useStyles} from '../../muiStyles';
 import Slider from "react-slick"

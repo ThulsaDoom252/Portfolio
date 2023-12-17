@@ -4,7 +4,6 @@ import GridItem from '../common/GridItem';
 import ProjectItem from '../common/ProjectItem';
 import {landingItems} from './content';
 import Project from '../common/Project';
-import {Waypoint} from 'react-waypoint';
 import Section from '../common/Section';
 const Landings = ({isLandingDetailsVisible, handleLandingDetails, currentScreenWidth}) => {
     return (

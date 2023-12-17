@@ -16,13 +16,14 @@ const ContactFormContainer = () => {
     const [formErrorsValues, setFormErrorsValues] = useState({...defaultFormValues})
     const sendEmail = async (e) => {
         e.preventDefault()
+        console.log(config)
         return new Promise(r => {
             emailjs.sendForm(config.serviceId, config.templateId, formRef.current, config.publicKey)
                 .then(() => {
                     r(true)
                 })
                 .catch(e => {
-                    console.error(e)
+                    console.error('Sending email error: ', e)
                     r(false)
                 })
         })

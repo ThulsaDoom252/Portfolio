@@ -3,7 +3,7 @@ import {Box, Button} from '@mui/material';
 import {BiLogoFacebook} from 'react-icons/bi';
 import {CiInstagram} from 'react-icons/ci';
 import {SlSocialTwitter} from 'react-icons/sl';
-import {contactData} from '../../../config';
+import {contactData} from '../../config';
 
 const Contacts = ({
                       classes,
