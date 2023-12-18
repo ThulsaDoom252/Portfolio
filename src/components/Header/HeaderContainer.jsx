@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Header from './Header';
 import {useStyles} from '../../muiStyles';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
 
-const HeaderContainer = ({isSticky, currentSection, currentScreenWidth, handleActiveSection}) => {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+const HeaderContainer = ({isSticky, isDrawerOpen, currentSection, currentScreenWidth, handleActiveSection, setIsDrawerOpen}) => {
+
 
     const handleDrawerOpen = () => {
         setIsDrawerOpen(true);

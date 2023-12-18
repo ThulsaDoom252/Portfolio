@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import Landings from './Landings';
 import {delay} from '../../common';
-
-
 const LandingsContainer = ({handleActiveSection, currentScreenWidth}) => {
     const [isLandingDetailsVisible, toggleLandingDetails] = useState(false)
 

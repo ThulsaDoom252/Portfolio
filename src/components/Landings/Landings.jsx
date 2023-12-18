@@ -10,7 +10,7 @@ import {landings} from '../../common';
 const Landings = ({isLandingDetailsVisible, handleLandingDetails, currentScreenWidth}) => {
     return (
         <Section
-            className={`projects landings portfolio-section ${isLandingDetailsVisible ? 'project-details' : 'projects-list'}`}
+            className={`landings projects portfolio-section ${isLandingDetailsVisible ? 'project-details' : 'projects-list'}`}
             id={'landings'}
         ><Box className='projects-container'>
             {!isLandingDetailsVisible ?

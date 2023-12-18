@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Button, Tooltip} from '@mui/material';
+import {Button, Tooltip} from '@mui/material';
 import {BsDownload} from 'react-icons/bs';
 import {useStyles} from '../../muiStyles';
 import {userData} from '../../config';

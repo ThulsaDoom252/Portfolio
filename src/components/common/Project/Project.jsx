@@ -55,31 +55,37 @@ const Project = ({
                     </GridItem>
                     <GridItem padding='none' xs={6} md={4}>
                         <p className='project-details__subtitle'>Github</p>
-                        <a className='project-details__link' target='_blank' href={gitLink}>View source code</a>
+                        <a className='project-details__link' target='_blank' rel="noreferrer" href={gitLink}>View source
+                            code</a>
                     </GridItem>
                     {deployLink && <GridItem padding='none' xs={6} md={4}>
                         <p className='project-details__subtitle'>Deployed</p>
-                        <a className='project-details__link' target={'_blank'} href={deployLink}>View</a>
+                        <a className='project-details__link' target={'_blank'} rel='noreferrer'
+                           href={deployLink}>View</a>
                     </GridItem>}
                 </Grid>
                 <Contacts showButton={false} iconSize={30}/>
                 <Box className='project-details__image'>
                     <Slider arrows fade {...sliderSettings} ref={sliderRef}>
                         {images.map((image, index) =>
-                            <img key={index} src={image} alt="image"/>
+                            // eslint-disable-next-line
+                            <img key={index} src={image} alt={`image${index}`}/>
                         )}
                     </Slider>
                 </Box>
-                <Box marginTop={10}>
+                <Divider/>
+                <Box marginTop={5}>
                     <Grid container justifyContent={'center'}>
                         {images.map((image, index) =>
+
                             <React.Fragment key={index}>
                                 <GridItem adaptive>
                                     <Box
                                         className={`project-details__item ${index === slideIndex && 'item-active'}`}
                                         onClick={() => handleSlideChange(index)}>
-                                        <img key={index} className='project-details__thumbnail' src={image}
-                                             alt={'project-image'}/>
+                                        { // eslint-disable-next-line
+                                            <img key={index} className='project-details__thumbnail' src={image}
+                                                 alt={'project-image'}/>}
                                     </Box>
                                 </GridItem>
                             </React.Fragment>

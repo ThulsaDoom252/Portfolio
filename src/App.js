@@ -10,10 +10,14 @@ import LandingsContainer from './components/Landings/LandingsContainer';
 import FooterContainer from './components/Footer/FooterContainer';
 import {about, contacts, home, landings, projects} from './common';
 import ContactFormContainer from './components/ContactForm/ContactFormContainer';
+import FloatBtn from './components/FloatBtn';
+
 function App() {
     const [currentSection, setCurrentSection] = useState(home)
     const [currentlyClickedNavItem, setCurrentlyClickedNavItem] = useState(null)
     const [isSticky, setIsSticky] = useState(false)
+    const [isFloatBtnVisible, toggleFloatBtn] = useState(false)
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const {width: currentScreenWidth} = useWindowDimensions()
 
@@ -61,25 +65,46 @@ function App() {
             window.removeEventListener('scroll', handleScrollAnchor);
         };
     }, [currentSection, currentlyClickedNavItem]);
+
+
+    useEffect(() => {
+        if (isDrawerOpen) {
+            isFloatBtnVisible && toggleFloatBtn(false)
+        } else {
+            (!isFloatBtnVisible && currentSection !== home) && toggleFloatBtn(true)
+        }
+    }, [isDrawerOpen]);
+
     function handleScrolledSection(section) {
+        if (section !== home) {
+            !isFloatBtnVisible && toggleFloatBtn(true)
+        } else {
+            toggleFloatBtn(false)
+        }
+
         if (!currentlyClickedNavItem && section !== currentSection) {
             setCurrentSection(section)
         } else if (section === currentlyClickedNavItem) {
             setCurrentlyClickedNavItem(null)
         }
     }
+
     function handleActiveSection(section, event, isDetailMode, backToMainMode, instant) {
         event && event.preventDefault()
         !isDetailMode && setCurrentlyClickedNavItem(section)
-        const targetElement = document.getElementById(section);
         if (currentSection !== section || backToMainMode) {
             setCurrentSection(section)
-            const offset = 100;
-            window.scrollTo({
-                top: targetElement.offsetTop - offset,
-                behavior: instant || 'smooth'
-            });
+            handleScroll(section, instant)
         }
+    }
+
+    const handleScroll = (section, instant) => {
+        const targetElement = document.getElementById(section)
+        const offset = 100;
+        window.scrollTo({
+            top: targetElement.offsetTop - offset,
+            behavior: instant || 'smooth',
+        });
     }
 
     return (
@@ -87,9 +112,12 @@ function App() {
             <HeaderContainer currentSection={currentSection}
                              isSticky={isSticky}
                              handleActiveSection={handleActiveSection}
-                             currentScreenWidth={currentScreenWidth}/>
+                             currentScreenWidth={currentScreenWidth}
+                             isDrawerOpen={isDrawerOpen}
+                             setIsDrawerOpen={setIsDrawerOpen}
+            />
+            <FloatBtn isFloatBtnVisible={isFloatBtnVisible} handleScroll={handleScroll}/>
             <Home/>
-
             <main>
                 <AboutContainer/>
                 <ProjectsContainer handleActiveSection={handleActiveSection}

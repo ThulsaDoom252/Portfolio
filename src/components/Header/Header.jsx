@@ -7,7 +7,6 @@ import {CiMenuBurger} from 'react-icons/ci';
 import Drawer from '@mui/material/Drawer';
 import BurgerMenu from '../BurgerMenu';
 import {IoClose} from 'react-icons/io5';
-import CvButton from '../common/CvButton';
 
 const Header = ({
                     currentSection,
@@ -20,7 +19,9 @@ const Header = ({
                     handleActiveSection,
                 }) => {
 
-    const widthToShowDrawer = 894
+    const widthToShowDrawer = 1079
+    const widthToRelocateContacts = 569
+    const widthToRelocateCvBtn = 790
 
     return (
         <header className={`h-20 justify-between flex items-center  ${isSticky && 'sticky-header'}`}>
@@ -31,7 +32,9 @@ const Header = ({
                 <Logo/>
                 <Navbar currentSection={currentSection} handleActiveSection={handleActiveSection}/>
             </Box>
-            <Contacts classes={classes} currentScreenWidth={currentScreenWidth} showButton={currentScreenWidth >= 654}/>
+            {currentScreenWidth >= widthToRelocateContacts &&
+                <Contacts classes={classes} currentScreenWidth={currentScreenWidth}
+                          showButton={currentScreenWidth >= widthToRelocateCvBtn}/>}
 
             {currentScreenWidth <= widthToShowDrawer &&
                 <>
@@ -46,10 +49,14 @@ const Header = ({
                                 sx={{zIndex: 9}}
                                 variant='temporary'
                                 onClose={handleDrawerClose}>
-                            <BurgerMenu onClick={handleDrawerClose}
-                                        currentScreenWidth={currentScreenWidth}
-                                        currentSection={currentSection}
-                                        handleActiveSection={handleActiveSection}
+                            <BurgerMenu
+                                classes={classes}
+                                onClick={handleDrawerClose}
+                                currentScreenWidth={currentScreenWidth}
+                                currentSection={currentSection}
+                                handleActiveSection={handleActiveSection}
+                                widthToRelocateCvBtn={widthToRelocateCvBtn}
+                                widthToRelocateContacts={widthToRelocateContacts}
                             />
                         </Drawer>
                     </div>

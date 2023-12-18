@@ -1,15 +1,14 @@
 import React from 'react';
-import {Box, Button} from '@mui/material';
+import {Box} from '@mui/material';
 import {BiLogoFacebook, BiLogoGithub} from 'react-icons/bi';
 import {CiInstagram} from 'react-icons/ci';
-import {SlSocialTwitter} from 'react-icons/sl';
 import {userData} from '../../config';
 import CvButton from './CvButton';
 
 const Contacts = ({
                       classes,
                       currentScreenWidth = 0,
-                      showButton = true,
+                      showButton,
                       iconSize = currentScreenWidth <= 426 ? 24 : 25
                   }) => {
 
