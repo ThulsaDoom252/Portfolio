@@ -28,7 +28,7 @@ const Home = () => {
             <Box className='container'>
                 <div className='greet__main-text'>
                     <p className='greet__label description'>welcome to my world</p>
-                    <h1 className='greet__title'>Hi, i'm Vladimir</h1>
+                    <h1 className='greet__title'>Hi, i'm Volodymyr</h1>
                     <h1 className={` greet__title ${slideAnimation && 'greet-animated-slide'} ${textIndex === 0 ? 'greet__react-text' : textIndex === 1 ? 'greet__shopify-text' : 'greet__designer-text'}`}>{texts[textIndex]}</h1>
                     <h1 className='greet__subtitle'>based in Ukraine</h1>
                 </div>

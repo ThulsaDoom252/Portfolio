@@ -64,6 +64,7 @@ function App() {
         return () => {
             window.removeEventListener('scroll', handleScrollAnchor);
         };
+        //eslint-disable-next-line
     }, [currentSection, currentlyClickedNavItem]);
 
 
@@ -73,13 +74,14 @@ function App() {
         } else {
             (!isFloatBtnVisible && currentSection !== home) && toggleFloatBtn(true)
         }
+        //eslint-disable-next-line
     }, [isDrawerOpen]);
 
     function handleScrolledSection(section) {
         if (section !== home) {
-            !isFloatBtnVisible && toggleFloatBtn(true)
+            (!isFloatBtnVisible && !isDrawerOpen) && toggleFloatBtn(true)
         } else {
-            toggleFloatBtn(false)
+            isFloatBtnVisible && toggleFloatBtn(false)
         }
 
         if (!currentlyClickedNavItem && section !== currentSection) {
