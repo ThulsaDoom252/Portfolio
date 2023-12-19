@@ -12,11 +12,10 @@ const ContactFormContainer = () => {
     const formRef = useRef()
     const [isBtnDisabled, disableBtn] = useState(false)
     const {enqueueSnackbar: snackbar} = useSnackbar();
-    const [formValues, setFormValues] = useState({...defaultFormValues})
+    const [formValues, setFormValues] = useState({...defaultFormValues, isValid: true})
     const [formErrorsValues, setFormErrorsValues] = useState({...defaultFormValues})
     const sendEmail = async (e) => {
         e.preventDefault()
-        console.log(config)
         return new Promise(r => {
             emailjs.sendForm(config.serviceId, config.templateId, formRef.current, config.publicKey)
                 .then(() => {
@@ -49,9 +48,10 @@ const ContactFormContainer = () => {
         const formErrors = await validateForm(formValues)
         const isValid = Object.values(formErrors).every(value => !value);
         if (!isValid) {
-            setFormErrorsValues(prevState => ({...prevState, ...formErrors}))
+            setFormErrorsValues(prevState => ({...prevState, ...formErrors, isValid}))
             return
         }
+        !formErrors.isValid && setFormErrorsValues({...defaultFormValues})
         disableBtn(true)
         try {
             const isEmailSend = await sendEmail(e)
@@ -76,3 +76,6 @@ const ContactFormContainer = () => {
 };
 
 export default ContactFormContainer;
+
+
+
