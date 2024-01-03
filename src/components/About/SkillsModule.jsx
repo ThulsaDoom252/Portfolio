@@ -6,8 +6,12 @@ const SkillsModule = () => {
         {firstLabel: 'Web and user interface design - development', secondLabel: 'Websites, web experiences'},
         {firstLabel: 'Front-end developer', secondLabel: 'Crafting perfection'},
         {firstLabel: 'Frameworks', secondLabel: 'React, NextJs'},
-        {firstLabel: 'Languages', secondLabel: 'HTML, CSS, JS, TS'},
+        {firstLabel: 'Languages', secondLabel: 'HTML, CSS, JS, TS, LIQUID'},
         {firstLabel: 'Preprocessors', secondLabel: 'Sass, Less'},
+        {
+            firstLabel: `Proficient in API's (including but not limited)`,
+            secondLabel: 'Rest API, Fetch API, GraphQL, Shopify, Firebase, WebSockets, Google maps'
+        },
         {firstLabel: 'State managers', secondLabel: 'Redux (vanilla, toolkit), Mobx, Context api'},
         {firstLabel: 'Ui/Css frameworks', secondLabel: 'Bootstrap, Materials Ui, Ant-design, Tailwind-css'},
     ]
