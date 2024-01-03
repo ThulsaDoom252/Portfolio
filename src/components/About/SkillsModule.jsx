@@ -10,7 +10,7 @@ const SkillsModule = () => {
         {firstLabel: 'Preprocessors', secondLabel: 'Sass, Less'},
         {
             firstLabel: `Proficient in API's (including but not limited)`,
-            secondLabel: 'Rest API, Fetch API, GraphQL, Shopify, Firebase, WebSockets, Google maps'
+            secondLabel: 'Rest API, Fetch API, Git, GraphQL, Shopify, Firebase, WebSockets, Google maps'
         },
         {firstLabel: 'State managers', secondLabel: 'Redux (vanilla, toolkit), Mobx, Context api'},
         {firstLabel: 'Ui/Css frameworks', secondLabel: 'Bootstrap, Materials Ui, Ant-design, Tailwind-css'},

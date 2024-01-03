@@ -25,7 +25,7 @@ export const projectItems = [
         image01: firedriveImage01,
         image02: firedriveImage02,
         gitLink: 'https://github.com/ThulsaDoom252/FireDrive',
-        deployLink: 'https://firedrive2-4137d.web.app/',
+        deployLink: 'https://fire-drive-sigma.vercel.app',
     },
     {
         title: 'social-network',
